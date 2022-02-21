@@ -1,3 +1,6 @@
+Milestone 1: Onderwerp en Git
+---
+
 Student:
 --------
 Maxim Derboven  
@@ -5,81 +8,79 @@ Maxim Derboven
 
 Onderwerp: (veel op veel)
 -------------------------
-- Huurder - Voertuig
+- M:N
+  - Viewer - Movie
 
 
-- 2Level: Voertuig
-- Garage
-- Facturen
+- 2Level: Movie
+  - Hall
+  - Theather
 
 
 Entiteittypes:
 --------------
-- Verhuur Firma
-- Voertuig
-- Contract
-- Huurder
-- Garage
-- Facturen
+- Reviewer
+- Movie
+- Actor
+- Hall
+- Theather
 
 Relatietypes:
 -------------
-- Verhuur Firma  
-verhuurt - Voertuig
-- Voertuig  
-wordt verhuurt aan - Huurder
-- Huurder  
-Huurt - Voertuig
-- Garage  
-onderhoudt - Voertuig
-- Facturen  
-Worden opgemaakt door - Garage
 
-
+- Movie
+  - was reviewed by
+  - Reviewer
+- Actor
+  - acts in
+  - Movie
+- Movie
+  - is played in
+  - Hall
+- Halls
+  - are rented by
+  - Theather
 
 Attributen:
 -----------
-Verhuur Firma  
-- firma naam   
-- firma BTWnr
 
-
-Voertuig  
-- automatiek
-- nrplaat
-- kmstand
-- model
-- merk
-  
-
-Huurder  
-- voornaam
-- achternaam
-- email
-- telefoon nummer
-- straat
-- straatnummer
-- woonplaats
-- land
-- geslacht
-- vip
-- birthday
-
-
-Garage 
-- naam
-- BTWnr
-- rek nr
-- straat
-- straatnummer
-- woonplaats
-- land
-- email
-- telefoon nummer  
-
-Facturen  
-- saldo
-- deadline
-- factuurnummer
-- status
-
+- Movie
+  - title
+  - release_date
+  - genre
+  - type
+  - runtime
+  - plot
+  - lang
+- Actor
+  - firstname
+  - lastname
+  - email
+  - phonenumber
+  - street
+  - number
+  - city
+  - country
+  - ZIP
+  - gender
+  - birthday
+- Reviewer
+  - firstname
+  - lastname
+  - stars
+  - comment
+  - published
+  - email
+- Hall
+  - amount_seats
+  - floor
+  - screentype
+- Theather
+  - name
+  - shop
+  - phonenumber
+  - street
+  - number
+  - city
+  - country
+  - ZIP
