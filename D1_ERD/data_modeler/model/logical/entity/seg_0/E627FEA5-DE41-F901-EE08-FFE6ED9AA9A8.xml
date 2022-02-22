@@ -1,0 +1,127 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E627FEA5-DE41-F901-EE08-FFE6ED9AA9A8" name="Reviewer">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:32:44 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="reviewer_id" id="84AAFC40-F191-9C33-EFF1-D2A9A47BE12A">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:33:38 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="firstname" id="C51DE01E-2EC1-7899-B6DB-CD4DC3EBDCC5">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:33:55 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="lastname" id="5A110F61-DF0A-AE47-824D-75EFC4BB2AFE">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:34:15 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="stars" id="8B8C928E-45A6-ABA8-1251-BDD2BEAD6373">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:34:26 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="comment" id="283DB8D5-B47B-E09F-D991-876126C3C419">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:34:40 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="published" id="D1047776-9DE9-F535-E95E-50A78E72092C">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:34:53 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="E3D47BBD-C835-07B0-9D00-B9B39B33227A">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:35:07 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DCA5E958-2206-1A31-19BD-D68E7850924F" name="Reviewer PK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:17:01 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>84AAFC40-F191-9C33-EFF1-D2A9A47BE12A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

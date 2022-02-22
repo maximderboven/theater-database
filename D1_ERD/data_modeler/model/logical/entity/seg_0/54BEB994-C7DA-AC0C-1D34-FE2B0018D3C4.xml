@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A738922A-3582-3DFD-F088-92BA04AFC61B" name="Rentor">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="54BEB994-C7DA-AC0C-1D34-FE2B0018D3C4" name="Hall">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:25:42 UTC</createdTime>
+<createdTime>2022-02-21 21:40:30 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -15,36 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="name" id="C9DFD7DC-7800-5740-0F50-E17A6872D716">
+<Attribute name="hall_id" id="53CD9B3A-1E73-971D-4AD8-7FA967236302">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:26:47 UTC</createdTime>
-<ownerDesignName>model</ownerDesignName>
-<engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>250 CHAR</dataTypeSize>
-<ownDataTypeParameters>250 CHAR,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="VATnr" id="E269E7E5-8F12-59D2-7C6E-7E087C363C98">
-<createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:26:57 UTC</createdTime>
-<ownerDesignName>model</ownerDesignName>
-<engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>15 CHAR</dataTypeSize>
-<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Id" id="7416F875-4050-CA2A-33F6-3E62A3D094ED">
-<createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:35:16 UTC</createdTime>
+<createdTime>2022-02-21 21:40:36 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -54,19 +27,58 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="seat_amount" id="E54D366B-70EB-7DA1-9760-95FBCD81FF43">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:40:45 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="floor" id="FD75F1DF-AE94-A41B-322A-77FBD30E9925">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:41:03 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="screentype" id="CA0090E7-26DD-1580-441A-177A1A86977B">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:41:15 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="6CA1A6A5-0F51-AE2F-383C-BB55241D993C" name="Id">
+<identifier id="02D70AB4-3CF9-C0C4-91C6-4A316AB4D1A8" name="Hall PK">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:26:36 UTC</createdTime>
+<createdTime>2022-02-22 13:17:55 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
 </engineerTo>
 <pk>true</pk>
-<newElementsIDs>7416F875-4050-CA2A-33F6-3E62A3D094ED</newElementsIDs>
 <usedAttributes>
-<attributeRef>7416F875-4050-CA2A-33F6-3E62A3D094ED</attributeRef>
+<attributeRef>53CD9B3A-1E73-971D-4AD8-7FA967236302</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

@@ -9,7 +9,7 @@ Maxim Derboven
 Onderwerp: (veel op veel)
 -------------------------
 - M:N
-  - Viewer - Movie
+  - Reviewer - Movie
 
 
 - 2Level: Movie

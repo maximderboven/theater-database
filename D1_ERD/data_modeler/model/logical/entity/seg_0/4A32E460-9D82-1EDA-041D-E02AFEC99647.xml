@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E1F8224A-C74C-F1F8-4F9A-18BD14E3C278" name="Rentee">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4A32E460-9D82-1EDA-041D-E02AFEC99647" name="Actor">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:35:46 UTC</createdTime>
+<createdTime>2022-02-21 21:36:50 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Id" id="81EC9745-187E-FCC4-CC0E-D27F9108AFF6">
+<Attribute name="actor_id" id="CD273EC1-80BC-AF56-9829-7FBEB844D061">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:36:31 UTC</createdTime>
+<createdTime>2022-02-21 21:36:50 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -27,22 +27,9 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="firstname" id="208CE9EF-0E0D-6E50-6937-CADA5EBA4EAE">
+<Attribute name="firstname" id="47F77BC3-528C-1C56-C7BC-C7610228C0D7">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:36:42 UTC</createdTime>
-<ownerDesignName>model</ownerDesignName>
-<engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20 CHAR</dataTypeSize>
-<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="lastname" id="FB209E87-E98C-59A4-DEE9-EFCB8BC6C969">
-<createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:37:04 UTC</createdTime>
+<createdTime>2022-02-21 21:36:50 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -54,9 +41,9 @@
 <dataTypeSize>20 CHAR</dataTypeSize>
 <ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="email" id="C60A4CA5-BB97-7A72-009F-2993BF36479C">
+<Attribute name="lastname" id="FB6EC9C8-2B4B-5A9B-D43D-38C3FC2DE2D6">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:37:17 UTC</createdTime>
+<createdTime>2022-02-21 21:36:50 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -65,12 +52,26 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>25 CHAR</dataTypeSize>
-<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="phonenumber" id="75B1A4D8-149E-277A-BED6-F57008E33454">
+<Attribute name="email" id="F31E87C8-3CBD-2EEF-D4B0-C04D31946BC9">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:37:33 UTC</createdTime>
+<createdTime>2022-02-21 21:36:50 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="phonenumber" id="1B4C1484-4F34-A99B-701E-7BEEF1922662">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:36:50 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -82,9 +83,9 @@
 <dataTypeSize>10 CHAR</dataTypeSize>
 <ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="bankaccount" id="529D4058-B5C4-6479-8A1E-DCAEFD6F4835">
+<Attribute name="street" id="949FBF85-C078-BCAA-F0C3-369E7F0F36FE">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:38:11 UTC</createdTime>
+<createdTime>2022-02-21 21:36:50 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -93,26 +94,12 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>12 CHAR</dataTypeSize>
-<ownDataTypeParameters>12 CHAR,,</ownDataTypeParameters>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="street" id="F969BD96-81B3-FE52-13A4-D16470BFCFB6">
+<Attribute name="number" id="381569A6-6904-31FE-E483-99EBF58157EB">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:38:47 UTC</createdTime>
-<ownerDesignName>model</ownerDesignName>
-<engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>35 CHAR</dataTypeSize>
-<ownDataTypeParameters>35 CHAR,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="streetnumber" id="1D975281-DC5E-C646-796C-972B43C714BD">
-<createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:39:06 UTC</createdTime>
+<createdTime>2022-02-21 21:36:50 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -123,9 +110,9 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="city" id="720043EE-F980-1F3E-88C8-001B2BC5081C">
+<Attribute name="city" id="8DBB3D24-2888-87CD-016E-AD35D6FEEAB5">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:39:19 UTC</createdTime>
+<createdTime>2022-02-21 21:38:24 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -134,12 +121,12 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>25 CHAR</dataTypeSize>
-<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="country" id="0994BD3E-0A7F-25AB-0B98-6F93191B514C">
+<Attribute name="country" id="B84DE355-8CB8-26F1-858F-14667E59F7C8">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:40:31 UTC</createdTime>
+<createdTime>2022-02-21 21:38:44 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -148,12 +135,26 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>25 CHAR</dataTypeSize>
-<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="gender" id="D7B39868-7B1E-BF63-213C-DD31D98E2AC4">
+<Attribute name="zip_code" id="FB1ECB56-C84F-C679-C3E7-B891B1E07F30">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:39:48 UTC</createdTime>
+<createdTime>2022-02-21 21:38:59 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4 CHAR</dataTypeSize>
+<ownDataTypeParameters>4 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gender" id="91153AB0-579F-312A-1B35-D53A91EE7318">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-21 21:39:15 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -165,22 +166,9 @@
 <dataTypeSize>1 CHAR</dataTypeSize>
 <ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="vip" id="FC8EC444-DB1D-B8E1-D154-5ED7800414FE">
+<Attribute name="birthday" id="85BA215A-C8D2-300B-12FF-0A07ADEB2780">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:40:30 UTC</createdTime>
-<ownerDesignName>model</ownerDesignName>
-<engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT042</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="birthday" id="FBDFA9BD-7736-7141-1755-BD43EC0A00D3">
-<createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:40:56 UTC</createdTime>
+<createdTime>2022-02-21 21:39:31 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
@@ -193,17 +181,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="E80F996F-28E2-8BF5-1F7C-7792D79E5CB6" name="Id">
+<identifier id="08C124A9-8AFC-04A4-99B7-169E50E62C66" name="Actor PK">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 15:41:49 UTC</createdTime>
+<createdTime>2022-02-22 13:17:29 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
 <item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
 </engineerTo>
 <pk>true</pk>
-<newElementsIDs>81EC9745-187E-FCC4-CC0E-D27F9108AFF6</newElementsIDs>
 <usedAttributes>
-<attributeRef>81EC9745-187E-FCC4-CC0E-D27F9108AFF6</attributeRef>
+<attributeRef>CD273EC1-80BC-AF56-9829-7FBEB844D061</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

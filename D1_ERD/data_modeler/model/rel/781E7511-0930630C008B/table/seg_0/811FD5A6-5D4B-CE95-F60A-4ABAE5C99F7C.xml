@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="811FD5A6-5D4B-CE95-F60A-4ABAE5C99F7C" name="Relation_1">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Reviewer_reviewer_id" id="F1C78165-43E3-AC4A-862F-2D42CDD30390">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="845CB589-A724-1633-E5E9-2226A4FACACC" referredColumn="7737B6F6-C214-44F6-0BE8-17AC819B3ED8"/>
+</associations>
+</Column>
+<Column name="Movie_movie_id" id="A36A97BF-D8B0-86FD-CB97-765D4867F9BC">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="94866BA4-316E-DC5B-9B70-DEB96A24A438" referredColumn="A92659F1-E3E5-E5A7-9AA9-D0C9FEB64328"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="45C33FB4-D1D1-7D32-4754-0FE3241538A2" name="Relation_1_PK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F1C78165-43E3-AC4A-862F-2D42CDD30390"/>
+<colUsage columnID="A36A97BF-D8B0-86FD-CB97-765D4867F9BC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E68E81F1-D96D-8F6C-AF03-3491FFEC87BD" name="Relation_1_Reviewer_FK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>A86F29F3-01E7-E2DA-A51E-855A910C4689</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F1C78165-43E3-AC4A-862F-2D42CDD30390"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F0359A55-2539-DF6F-DBE1-342E18611FDE" name="Relation_1_Movie_FK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>A86F29F3-01E7-E2DA-A51E-855A910C4689</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A36A97BF-D8B0-86FD-CB97-765D4867F9BC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

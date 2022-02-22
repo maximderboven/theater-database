@@ -8,24 +8,23 @@ Conceptueel Model
 
     Entiteittypes + Attributen + PK
 ---
-- Vehicle ( **vehicle_id**, manual, purchasedate, licenseplate, mileage, model, brand, categorie)
-- Rentor (**studio_id**, studio_name, studio_adress)
-- Player ( **player_id**, player_name, highscore, start_date, end_date, email, street, housenumber, zip_code, city, country)
-- Influencer_youtubechannel(**channel_id**, channel_name, channel_url, subscriber_count)
-- Influencer_youtubevideo(**video_id**, videotitle, viewer_count, video_url, duration)
+- Movie ( **movie_id**, title, release_date, genre, type, runtime, plot, language)
+- Reviewer (**reviewer_id**, firstname, lastname, stars, comment, published, email)
+- Actor ( **actor_id**, firstname, lastname, email, phonenumber, street, number, city, country, zip_code, gender, birthday)
+- Hall (**hall_id**, amount_seats, floor, screentype)
+- Theather (**theather_id**, name, shop, phonenumber, street, number, city, country, zip_code)
 
 
     Domeinen - constraints
 ---
-- Player: zipcodes - minimum 4 characters
-- Player: email must contains @
-- Computergame: release_date < last_updated
+- reviewer_id: stars - maximum 5
+- Actor: gender - M, W or X
+- Actor: Email must contain @
 
 
     Tijd
 ---
-- Computergame: release_date
-- Player: address when moving: start_date, end_date
+- Movie: release_date
 
 
     Conceptueel ERD
@@ -38,8 +37,8 @@ Logisch Model
 
     Intermediërende  entiteiten
 ---
-- Player_locations: Players - Location
-- Highscores: Players - Computergames
+- Review: Reviewer - Movie
+- Contract: Actor - Movie
 
 
     Logisch ERD
@@ -51,7 +50,9 @@ Verschillen na Normalisatie
 ---
 - Extra entiteit: Zipcodes
 - Extra entities: Countries
-- Tabel player_locations heeft gewijzigde samengestelde sleutel omdat je als speler bijvoorbeeld verschillende huureigendommen kunt hebben.
-  - PK: (Player_id, location_id, startdatum)
+- Extra entities: movie_genre
+- Extra entities: movie_type
+- Extra entities: screentype
+- Extra entities: performancetype
 
 ![Finaal Model](Finaal_ERD_M2.png)
