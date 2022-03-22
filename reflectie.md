@@ -9,7 +9,7 @@ Maxim Derboven
 Onderwerp: (veel op veel)
 -------------------------
 - M:N
-  - Reviewer - Movie
+  - Viewer - Movie
 
 
 - 2Level: Movie
@@ -19,9 +19,9 @@ Onderwerp: (veel op veel)
 
 Entiteittypes:
 --------------
-- Reviewer
+- Viewer
 - Movie
-- Actor
+- MovieType
 - Hall
 - Theather
 
@@ -29,56 +29,47 @@ Relatietypes:
 -------------
 
 - Movie
-  - was reviewed by
-  - Reviewer
-- Actor
-  - acts in
-  - Movie
+  - was viewed by
+  - Viewer
+- Movie
+  - is described by
+  - MovieType
 - Movie
   - is played in
   - Hall
 - Halls
-  - are rented by
+  - are inside a
   - Theather
 
 Attributen:
 -----------
 
+- Viewer
+  - firstname
+  - lastname
+  - birthday
+  - email
 - Movie
   - title
   - release_date
-  - genre
-  - type
+  - age_restriction
   - runtime
   - plot
+  - price
+  - playTime
+  - playDate
   - lang
-- Actor
-  - firstname
-  - lastname
-  - email
-  - phonenumber
-  - street
-  - number
-  - city
-  - country
-  - ZIP
-  - gender
-  - birthday
-- Reviewer
-  - firstname
-  - lastname
-  - stars
-  - comment
-  - published
-  - email
+- MovieType
+  - genre
+  - type
 - Hall
   - amount_seats
   - floor
-  - screentype
+  - screenType
 - Theather
   - name
   - shop
-  - phonenumber
+  - phoneNumber
   - street
   - number
   - city

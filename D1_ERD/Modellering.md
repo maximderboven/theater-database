@@ -30,7 +30,7 @@ Conceptueel Model
     Conceptueel ERD
 ---
 
-![Conceptueel Model](conceptueel.PNG)
+![Conceptueel Model](conceptueel.png)
 
 Logisch Model
 ---
@@ -44,7 +44,7 @@ Logisch Model
     Logisch ERD
 ---
 
-![Logisch Model](logisch.PNG)
+![Logisch Model](logisch.png)
 
 Verschillen na Normalisatie
 ---
