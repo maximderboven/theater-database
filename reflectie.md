@@ -48,7 +48,13 @@ Attributen:
   - firstname
   - lastname
   - birthday
+  - gender
   - email
+  - street
+  - number
+  - city
+  - country
+  - ZIP
 - Movie
   - title
   - release_date
@@ -56,8 +62,7 @@ Attributen:
   - runtime
   - plot
   - price
-  - playTime
-  - playDate
+  - startTime
   - lang
 - MovieType
   - genre

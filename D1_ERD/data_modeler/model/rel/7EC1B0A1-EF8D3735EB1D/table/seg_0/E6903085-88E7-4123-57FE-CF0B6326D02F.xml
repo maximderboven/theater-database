@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E6903085-88E7-4123-57FE-CF0B6326D02F" name="Halls">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<generatorID>54BEB994-C7DA-AC0C-1D34-FE2B0018D3C4</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>hall</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="hall_id" id="3B953CAB-3773-D9E6-8D26-48974F1F86AB">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<generatorID>53CD9B3A-1E73-971D-4AD8-7FA967236302</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="seat_amount" id="96C8A10C-0FBA-96AA-A688-CE2EBD76D1BE">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<generatorID>E54D366B-70EB-7DA1-9760-95FBCD81FF43</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="floor" id="DD23AC75-3FA8-91B9-A4A2-B265C017F57D">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<generatorID>FD75F1DF-AE94-A41B-322A-77FBD30E9925</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="screentype" id="A0EBF22C-F346-C8EA-27A7-86B4A4F32315">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<generatorID>CA0090E7-26DD-1580-441A-177A1A86977B</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="theather_id" id="1254F213-966B-7C4D-2959-0BAAD4AE6380">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<generatorID>BD70C3C0-ABD0-B7A1-1DB5-A1731EEDA957</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BDC291CD-6796-7F06-5AE8-8581662CBFD6" referredColumn="B8BA037C-5B38-1925-E1DD-1F481DDB503C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B3E73183-C474-BAA8-CBF2-331F51368CAA" name="Hall_PK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<generatorID>02D70AB4-3CF9-C0C4-91C6-4A316AB4D1A8</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3B953CAB-3773-D9E6-8D26-48974F1F86AB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3DE0BAC5-45CD-58D4-8D0F-55DB841C93AD" name="fk_hall_theather">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<generatorID>96CFF4E4-B377-3BE3-DD46-CF0DA1E94DFB</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1254F213-966B-7C4D-2959-0BAAD4AE6380"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

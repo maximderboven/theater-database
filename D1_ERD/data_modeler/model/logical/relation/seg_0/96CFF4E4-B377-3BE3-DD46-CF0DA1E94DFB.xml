@@ -1,15 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_4" directorySegmentName="seg_0" id="96CFF4E4-B377-3BE3-DD46-CF0DA1E94DFB">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Hall_isownedby_theather" directorySegmentName="seg_0" id="96CFF4E4-B377-3BE3-DD46-CF0DA1E94DFB">
 <createdBy>maxim</createdBy>
 <createdTime>2022-02-21 21:54:05 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
-<targetPk>2E4ABA4F-0A19-D1CB-989C-C3D2907CD292</targetPk>
+<sourcePk>02D70AB4-3CF9-C0C4-91C6-4A316AB4D1A8</sourcePk>
+<targetPk>2655F20A-0EE5-1844-20F1-23FA190F1B99</targetPk>
 <identifying>false</identifying>
-<optionalSource>true</optionalSource>
-<optionalTarget>true</optionalTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
 <sourceCardinality>*</sourceCardinality>
 <sourceEntity>54BEB994-C7DA-AC0C-1D34-FE2B0018D3C4</sourceEntity>
 <targetCardinalityString>1</targetCardinalityString>

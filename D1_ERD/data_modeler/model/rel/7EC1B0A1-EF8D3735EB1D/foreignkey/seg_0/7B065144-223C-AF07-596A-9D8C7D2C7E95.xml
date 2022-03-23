@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="7B065144-223C-AF07-596A-9D8C7D2C7E95" containerWithKeyObject="5D959C04-0DB4-2E81-1AC8-E9AC1C9B32A3" localFKIndex="E12094B8-AB20-F4C3-C01D-79C386CA881E" name="fk_movie_hall">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<generatorID>85CB8C82-A845-B139-C32B-53DFB8959A42</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<referredTableLongName>Halls</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E6903085-88E7-4123-57FE-CF0B6326D02F</referredTableID>
+<keyObject>B3E73183-C474-BAA8-CBF2-331F51368CAA</keyObject>
+<referredKeyID>B3E73183-C474-BAA8-CBF2-331F51368CAA</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>hall_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

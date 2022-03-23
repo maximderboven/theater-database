@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<cwd_glossary name="Theather-Glossart" description="generated from logical model of design model" id="C26F1E63-E6BF-59F8-BDB8-04DA6F4489CF" incomplete_modifiers="true" >
+<cwd_glossary name="Theather Model" description="Logical Model Glossary" id="34EC0CDE-AB02-4E5C-58CC-ED59734F4006" incomplete_modifiers="true" >
 
-   <glossaryWord name="Actor" plural="" abbreviation="" alt_abbreviation="" id="AEE13EEE-AD43-B91E-5362-C9970DA70397" import_id="" description="" />
-   <glossaryWord name="Hall" plural="" abbreviation="" alt_abbreviation="" id="C1B71FE7-BEDC-763F-27D1-D206208E83AB" import_id="" description="" />
-   <glossaryWord name="Movie" plural="" abbreviation="" alt_abbreviation="" id="A4126DBE-0580-E8AF-A762-97D49A30CD65" import_id="" description="" />
-   <glossaryWord name="PK" plural="" abbreviation="" alt_abbreviation="" id="630FCD49-3C32-1DA2-28C3-D3719259EFC6" import_id="" description="" />
-   <glossaryWord name="Reviewer" plural="" abbreviation="" alt_abbreviation="" id="C15239CB-8CE0-5470-CE32-D54CFC47C808" import_id="" description="" />
-   <glossaryWord name="Theather" plural="" abbreviation="" alt_abbreviation="" id="98F2F83E-9093-B4B3-AB95-D2B1641958EA" import_id="" description="" />
-   <glossaryWord name="actor_id" plural="" abbreviation="" alt_abbreviation="" id="DFD5BADB-CCDA-F229-000D-FF40586A895D" import_id="" description="" />
-   <glossaryWord name="birthday" plural="" abbreviation="" alt_abbreviation="" id="58719646-BD2F-40E0-4965-1E336A380F4E" import_id="" description="" />
-   <glossaryWord name="city" plural="CITIES" abbreviation="CIT" alt_abbreviation="" id="E8D61D54-7761-A8C4-C26C-EBF096B6128F" import_id="" description="" />
-   <glossaryWord name="comment" plural="" abbreviation="CMM" alt_abbreviation="" id="1958524B-BA3B-DB44-AA51-FB348A8D4E77" import_id="" description="" />
-   <glossaryWord name="country" plural="COUNTRIES" abbreviation="CTY" alt_abbreviation="" id="65CB7F6F-2397-BF63-2AFA-6B02F12E118B" import_id="" description="" />
-   <glossaryWord name="email" plural="" abbreviation="" alt_abbreviation="" id="AA374A3F-C79F-7F57-AD3E-1ACF870C99F1" import_id="" description="" />
-   <glossaryWord name="firstname" plural="" abbreviation="" alt_abbreviation="" id="9DF29786-E327-7D5A-226C-35B27A606A38" import_id="" description="" />
-   <glossaryWord name="floor" plural="" abbreviation="FLR" alt_abbreviation="" id="F4FAB79E-A4A8-673E-F201-32FD9FAAE5C4" import_id="" description="" />
-   <glossaryWord name="gender" plural="" abbreviation="" alt_abbreviation="" id="B984DF8F-16E5-DE8F-C3FF-F932EF3E2E89" import_id="" description="" />
-   <glossaryWord name="genre" plural="" abbreviation="" alt_abbreviation="" id="2D17D60E-DB4A-37CC-E46D-B7359F8DA29F" import_id="" description="" />
-   <glossaryWord name="hall_id" plural="" abbreviation="" alt_abbreviation="" id="EFEBCBEF-BCCC-4FAF-4C3D-5DC9256C5EC4" import_id="" description="" />
-   <glossaryWord name="language" plural="" abbreviation="LGG" alt_abbreviation="" id="BCBE8BE8-AEFF-0865-FA81-4B7642EB2A4F" import_id="" description="" />
-   <glossaryWord name="lastname" plural="" abbreviation="" alt_abbreviation="" id="62E8DD39-583C-50B9-E10B-60B3C3C9779D" import_id="" description="" />
-   <glossaryWord name="movie_id" plural="" abbreviation="" alt_abbreviation="" id="FAA8795E-86CF-3F2F-3B85-0AF7D8E3C5CA" import_id="" description="" />
-   <glossaryWord name="name" plural="" abbreviation="" alt_abbreviation="" id="00D86C12-6CE6-3155-DD5A-6525D28CF39F" import_id="" description="" />
-   <glossaryWord name="number" plural="" abbreviation="" alt_abbreviation="" id="1045AC43-C05C-0DAE-F1D8-BB297F201959" import_id="" description="" />
-   <glossaryWord name="phonenumber" plural="" abbreviation="" alt_abbreviation="" id="9281D8B5-A0E6-14F5-283F-8784D482CC84" import_id="" description="" />
-   <glossaryWord name="plot" plural="" abbreviation="" alt_abbreviation="" id="88BEE2F9-DC5D-4E85-BF09-3FC99C6F692D" import_id="" description="" />
-   <glossaryWord name="published" plural="" abbreviation="PBH" alt_abbreviation="" id="4BF6965A-FC52-F5FC-81ED-35E2000938F8" import_id="" description="" />
-   <glossaryWord name="release_date" plural="" abbreviation="" alt_abbreviation="" id="2B0E5321-312E-1EDD-523D-1A37B94C2407" import_id="" description="" />
-   <glossaryWord name="reviewer_id" plural="" abbreviation="" alt_abbreviation="" id="AF3B0D0F-D884-6225-93E7-A59E63C6A507" import_id="" description="" />
-   <glossaryWord name="runtime" plural="" abbreviation="" alt_abbreviation="" id="5CD4BCFF-A722-83FD-9883-430688DF11F2" import_id="" description="" />
-   <glossaryWord name="screentype" plural="" abbreviation="" alt_abbreviation="" id="77CD6AFC-B999-C545-7778-CEA0501A4813" import_id="" description="" />
-   <glossaryWord name="seat_amount" plural="" abbreviation="" alt_abbreviation="" id="F1058FDD-4242-242E-5107-C493C6480BE9" import_id="" description="" />
-   <glossaryWord name="shop" plural="" abbreviation="" alt_abbreviation="" id="FBE96FF4-725A-6883-36A3-14566ECF546F" import_id="" description="" />
-   <glossaryWord name="stars" plural="" abbreviation="" alt_abbreviation="" id="3D25C2C6-C9AE-1B09-6956-02046E526301" import_id="" description="" />
-   <glossaryWord name="street" plural="" abbreviation="STR" alt_abbreviation="" id="41E74C34-0CBD-8373-8A34-B18776738339" import_id="" description="" />
-   <glossaryWord name="theather_id" plural="" abbreviation="" alt_abbreviation="" id="27BB8BF7-C19E-1B7B-BC1B-DFDB87D95D86" import_id="" description="" />
-   <glossaryWord name="title" plural="TITLES" abbreviation="TTL" alt_abbreviation="" id="EB943762-7770-DC6B-1443-AFCCA28B027C" import_id="" description="" />
-   <glossaryWord name="type" plural="" abbreviation="TYP" alt_abbreviation="" id="BD0FCB3D-F8FE-9954-283D-9DEE6F076809" import_id="" description="" />
-   <glossaryWord name="zip_code" plural="" abbreviation="" alt_abbreviation="" id="0A4D5DA1-FF66-B3EC-DBA2-0B926D2B3062" import_id="" description="" />
+   <glossaryWord name="Hall" plural="" abbreviation="" alt_abbreviation="" id="C1426078-5E50-3E6F-AADC-A0DA7F7CBABF" import_id="" description="" />
+   <glossaryWord name="Movie" plural="" abbreviation="" alt_abbreviation="" id="FF19A8F2-094B-10E8-7A30-05C9CB61AE7B" import_id="" description="" />
+   <glossaryWord name="MovieType" plural="" abbreviation="" alt_abbreviation="" id="39262D9C-5327-A465-39F9-D7C21BF08E82" import_id="" description="" />
+   <glossaryWord name="PK" plural="" abbreviation="" alt_abbreviation="" id="E220B0E1-C4F2-2525-4025-0E3019C9798C" import_id="" description="" />
+   <glossaryWord name="Theather" plural="" abbreviation="" alt_abbreviation="" id="D984283A-2BA2-864E-8E05-059F42C5D72B" import_id="" description="" />
+   <glossaryWord name="Viewer" plural="" abbreviation="" alt_abbreviation="" id="AF9842CC-9F7A-C57F-D133-6ADD91473AD0" import_id="" description="" />
+   <glossaryWord name="age_restriction" plural="" abbreviation="" alt_abbreviation="" id="F23EBA56-3FE6-F1E2-F2A4-CE37F0B24C6A" import_id="" description="Leeftijdsbesperking voor de film." />
+   <glossaryWord name="birthday" plural="" abbreviation="" alt_abbreviation="" id="558F1474-05CF-CEF0-47B4-14279F93632D" import_id="" description="De geboortdatum van de kijker." />
+   <glossaryWord name="city" plural="CITIES" abbreviation="CIT" alt_abbreviation="" id="6ADBB96C-6C85-D600-F968-7E79485573D6" import_id="" description="" />
+   <glossaryWord name="country" plural="COUNTRIES" abbreviation="CTY" alt_abbreviation="" id="6579913D-1BF4-87DD-2A0F-D9931FE75C32" import_id="" description="" />
+   <glossaryWord name="email" plural="" abbreviation="" alt_abbreviation="" id="FBD67200-7DC1-918A-8D94-146544B8DFCF" import_id="" description="" />
+   <glossaryWord name="firstname" plural="" abbreviation="" alt_abbreviation="" id="FBEF5F89-0B78-0E8E-3153-5F53E2A5EF21" import_id="" description="" />
+   <glossaryWord name="floor" plural="" abbreviation="FLR" alt_abbreviation="" id="6337778D-177F-42CF-39BE-3EB6123FE550" import_id="" description="Welke verdieping" />
+   <glossaryWord name="gender" plural="" abbreviation="" alt_abbreviation="" id="9AB58F06-0F30-AD36-B184-8175A6744D27" import_id="" description="" />
+   <glossaryWord name="genre" plural="" abbreviation="" alt_abbreviation="" id="E8D0B7F7-3712-9912-B10B-F6A4295CA9C0" import_id="" description="" />
+   <glossaryWord name="hall_id" plural="" abbreviation="" alt_abbreviation="" id="E3F6011A-275D-7F4B-7673-5E182A4DE0BD" import_id="" description="" />
+   <glossaryWord name="language" plural="" abbreviation="LGG" alt_abbreviation="" id="419DEE51-5DD5-A7C1-6487-F2748215F940" import_id="" description="" />
+   <glossaryWord name="lastname" plural="" abbreviation="" alt_abbreviation="" id="A283A873-6C4D-38EE-3362-6BB40074F599" import_id="" description="" />
+   <glossaryWord name="movie_id" plural="" abbreviation="" alt_abbreviation="" id="F6CC3E11-9034-640B-6F04-ECD674AB60B2" import_id="" description="" />
+   <glossaryWord name="movietype_id" plural="" abbreviation="" alt_abbreviation="" id="5A5E83A4-13FF-BC6F-6349-55B7AAD15EA6" import_id="" description="" />
+   <glossaryWord name="name" plural="" abbreviation="" alt_abbreviation="" id="7F495B02-DE51-DFE6-655E-34AFAF7DD213" import_id="" description="" />
+   <glossaryWord name="number" plural="" abbreviation="" alt_abbreviation="" id="7C7CD899-1F4B-3302-EDF5-6DC3E3C067D0" import_id="" description="" />
+   <glossaryWord name="phonenumber" plural="" abbreviation="" alt_abbreviation="" id="837F25C6-F965-FF23-F027-2145B8A20AE5" import_id="" description="" />
+   <glossaryWord name="playtime" plural="" abbreviation="" alt_abbreviation="" id="3EA791FF-3A88-0D46-E547-EF46537262DD" import_id="" description="" />
+   <glossaryWord name="plot" plural="" abbreviation="" alt_abbreviation="" id="BF5130B4-573C-249E-BA92-89561CC5B7B1" import_id="" description="" />
+   <glossaryWord name="price" plural="" abbreviation="PCE" alt_abbreviation="" id="8A98A653-EEEC-447E-FC14-6D055381DDA9" import_id="" description="" />
+   <glossaryWord name="release_date" plural="" abbreviation="" alt_abbreviation="" id="9050DF70-7C27-5A9F-85E4-C71E2F806071" import_id="" description="" />
+   <glossaryWord name="runtime" plural="" abbreviation="" alt_abbreviation="" id="05038C9E-091D-3BBC-16FC-FD68B33B2BFB" import_id="" description="" />
+   <glossaryWord name="screentype" plural="" abbreviation="" alt_abbreviation="" id="3FAEFC5B-6B6A-7F4E-433C-CF974DA6E03D" import_id="" description="" />
+   <glossaryWord name="seat_amount" plural="" abbreviation="" alt_abbreviation="" id="5DE04FCC-5EA8-1F61-2C73-F15313D84A07" import_id="" description="" />
+   <glossaryWord name="shop" plural="" abbreviation="" alt_abbreviation="" id="CC74CE41-0748-718D-4E01-AFC01121A450" import_id="" description="" />
+   <glossaryWord name="street" plural="" abbreviation="STR" alt_abbreviation="" id="37B67C6F-0D4A-C67B-9352-1E213EBFFC3D" import_id="" description="" />
+   <glossaryWord name="theather_id" plural="" abbreviation="" alt_abbreviation="" id="87F7B0D7-4825-CF1E-2E15-7A352E27C95A" import_id="" description="" />
+   <glossaryWord name="title" plural="TITLES" abbreviation="TTL" alt_abbreviation="" id="F4D57AE6-15CA-782A-C75F-CB5DFF92EDC9" import_id="" description="" />
+   <glossaryWord name="type" plural="" abbreviation="TYP" alt_abbreviation="" id="3FB7CD43-AD47-965D-EF4C-171C56CCF15C" import_id="" description="" />
+   <glossaryWord name="viewer_id" plural="" abbreviation="" alt_abbreviation="" id="C259B79D-4A24-BA46-8D7D-86051715C281" import_id="" description="" />
+   <glossaryWord name="zip_code" plural="" abbreviation="" alt_abbreviation="" id="CA4C0B23-1400-78EA-C4B6-D8005AC69400" import_id="" description="" />
 
 </cwd_glossary>

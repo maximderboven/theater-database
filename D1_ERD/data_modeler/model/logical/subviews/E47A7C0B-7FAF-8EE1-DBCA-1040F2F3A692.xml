@@ -14,25 +14,25 @@
 <display>false</display>
 <notation>2</notation>
 <objectViews>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="0643A777-1615-CD72-1F71-61BD860B9043" otype="Entity" vid="1E4C4B0A-0DEE-896B-C8E3-AAC879C12A89">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="53" y="89" width="213" height="101"/>
+</OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="0BECA6C1-AD6A-8C3E-52A9-8BF9F765A963" otype="Entity" vid="B0422AD1-B612-9A9F-4782-5B725231CA33">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="443" y="94" width="202" height="157"/>
-</OView>
-<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="4A32E460-9D82-1EDA-041D-E02AFEC99647" otype="Entity" vid="878F0577-53B1-CE90-22D3-DA01ADBC52DD">
-<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="721" y="111" width="196" height="219"/>
+<bounds x="319" y="49" width="202" height="221"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="54BEB994-C7DA-AC0C-1D34-FE2B0018D3C4" otype="Entity" vid="66CEE303-76DB-E7BC-2E63-417DF5B72B54">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="442" y="329" width="205" height="117"/>
+<bounds x="605" y="73" width="205" height="120"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="7CA276B3-5A2E-D48E-FC96-B2B517805838" otype="Entity" vid="298BBB64-83A7-1A42-BDA9-2A6E4A3C5FA3">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="440" y="520" width="206" height="172"/>
+<bounds x="897" y="68" width="206" height="175"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="E627FEA5-DE41-F901-EE08-FFE6ED9AA9A8" otype="Entity" vid="A412A252-0CBD-5CD6-7A77-FCC9704500C4">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="161" y="113" width="186" height="173"/>
+<bounds x="311" y="332" width="186" height="247"/>
 </OView>
 </objectViews>
 <connectors>
@@ -41,8 +41,8 @@
 <backgroundColor>-16777216</backgroundColor>
 <lineWidth>1</lineWidth>
 <points>
-<point x="544" y="251"/>
-<point x="544" y="329"/>
+<point x="521" y="133"/>
+<point x="605" y="133"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="96CFF4E4-B377-3BE3-DD46-CF0DA1E94DFB" otype="Relation" vid_source="66CEE303-76DB-E7BC-2E63-417DF5B72B54" vid_target="298BBB64-83A7-1A42-BDA9-2A6E4A3C5FA3">
@@ -50,17 +50,8 @@
 <backgroundColor>-16777216</backgroundColor>
 <lineWidth>1</lineWidth>
 <points>
-<point x="544" y="446"/>
-<point x="544" y="520"/>
-</points>
-</Connector>
-<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="9DE723CA-71A2-6CFF-3943-443C007D5963" otype="Relation" vid_source="B0422AD1-B612-9A9F-4782-5B725231CA33" vid_target="878F0577-53B1-CE90-22D3-DA01ADBC52DD">
-<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<backgroundColor>-16777216</backgroundColor>
-<lineWidth>1</lineWidth>
-<points>
-<point x="645" y="181"/>
-<point x="721" y="181"/>
+<point x="810" y="133"/>
+<point x="897" y="133"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="A86F29F3-01E7-E2DA-A51E-855A910C4689" otype="Relation" vid_source="A412A252-0CBD-5CD6-7A77-FCC9704500C4" vid_target="B0422AD1-B612-9A9F-4782-5B725231CA33">
@@ -68,8 +59,17 @@
 <backgroundColor>-16777216</backgroundColor>
 <lineWidth>1</lineWidth>
 <points>
-<point x="347" y="182"/>
-<point x="443" y="182"/>
+<point x="408" y="332"/>
+<point x="408" y="270"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="AD6B80BB-ED18-567F-55D5-7914FC871521" otype="Relation" vid_source="1E4C4B0A-0DEE-896B-C8E3-AAC879C12A89" vid_target="B0422AD1-B612-9A9F-4782-5B725231CA33">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="266" y="139"/>
+<point x="319" y="139"/>
 </points>
 </Connector>
 </connectors>

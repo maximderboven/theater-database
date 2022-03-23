@@ -8,23 +8,24 @@ Conceptueel Model
 
     Entiteittypes + Attributen + PK
 ---
-- Movie ( **movie_id**, title, release_date, genre, type, runtime, plot, language)
-- Reviewer (**reviewer_id**, firstname, lastname, stars, comment, published, email)
-- Actor ( **actor_id**, firstname, lastname, email, phonenumber, street, number, city, country, zip_code, gender, birthday)
+- Viewer (**viewer_id**, gender, firstname, lastname, birthday, email, phonenumber, street, number, city, country, zip_code)
+- Movie ( **movie_id**, title, release_date, age_restriction, runtime, plot, price, startTime, language)
+- MovieType ( **movietype_id**, genre, type)
 - Hall (**hall_id**, amount_seats, floor, screentype)
 - Theather (**theather_id**, name, shop, phonenumber, street, number, city, country, zip_code)
 
 
     Domeinen - constraints
 ---
-- reviewer_id: stars - maximum 5
-- Actor: gender - M, W or X
+- Viewer: birthday < NOW()
+- Viewer: gender - M, F or X
 - Actor: Email must contain @
 
 
     Tijd
 ---
-- Movie: release_date
+- Movie: release_date, startTime
+- Viewer: birthday
 
 
     Conceptueel ERD
@@ -37,8 +38,7 @@ Logisch Model
 
     Intermediërende  entiteiten
 ---
-- Review: Reviewer - Movie
-- Contract: Actor - Movie
+- Ticket: Viewer - Movie
 
 
     Logisch ERD
@@ -50,9 +50,8 @@ Verschillen na Normalisatie
 ---
 - Extra entiteit: Zipcodes
 - Extra entities: Countries
-- Extra entities: movie_genre
-- Extra entities: movie_type
-- Extra entities: screentype
-- Extra entities: performancetype
+- Extra entities: Locations
+- Tabel tickets heeft gewijzigde samengestelde sleutel omdat je als viewer bijvoorbeeld dezelfde film kunt kijken in dezelfde zaal op een ander moment.
+  - PK: (viewer_id, movie_id, startTime)
 
 ![Finaal Model](Finaal_ERD_M2.png)

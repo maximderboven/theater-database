@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B323CFE1-BCEE-0C8D-17AD-DD2EBB763A98" name="Countries">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 22:37:08 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>table_14</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="countrycode" id="BE6BC3E7-2388-0B76-19D7-63640E98C83C">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 22:40:34 UTC</createdTime>
+<generatorID>E5ED1BCF-2443-44EC-11BD-392B85853714</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="country" id="E7EE77E9-D4EA-2784-FFC1-F3E2B9850DA5">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 22:41:29 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="47C412C8-93DE-C685-E73D-11F956E3C309" name="Countries_PK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 22:41:37 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE6BC3E7-2388-0B76-19D7-63640E98C83C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -4,7 +4,7 @@
 <createdTime>2022-02-21 21:40:30 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -20,7 +20,7 @@
 <createdTime>2022-02-21 21:40:36 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -32,7 +32,7 @@
 <createdTime>2022-02-21 21:40:45 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -45,7 +45,7 @@
 <createdTime>2022-02-21 21:41:03 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -58,7 +58,7 @@
 <createdTime>2022-02-21 21:41:15 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -67,6 +67,20 @@
 <dataTypeSize>25 CHAR</dataTypeSize>
 <ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="theather_id" id="BD70C3C0-ABD0-B7A1-1DB5-A1731EEDA957">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:11:53 UTC</createdTime>
+<generatorID>96CFF4E4-B377-3BE3-DD46-CF0DA1E94DFB</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
+</engineerTo>
+<referedAttribute>393C4091-5A49-9E92-BD61-2B3DAA93336F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="02D70AB4-3CF9-C0C4-91C6-4A316AB4D1A8" name="Hall PK">
@@ -74,7 +88,7 @@
 <createdTime>2022-02-22 13:17:55 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

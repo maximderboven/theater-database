@@ -1,10 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E627FEA5-DE41-F901-EE08-FFE6ED9AA9A8" name="Reviewer">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E627FEA5-DE41-F901-EE08-FFE6ED9AA9A8" name="Viewer">
 <createdBy>maxim</createdBy>
 <createdTime>2022-02-21 21:32:44 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -15,12 +15,13 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="reviewer_id" id="84AAFC40-F191-9C33-EFF1-D2A9A47BE12A">
+<Attribute name="viewer_id" id="84AAFC40-F191-9C33-EFF1-D2A9A47BE12A">
 <createdBy>maxim</createdBy>
 <createdTime>2022-02-21 21:33:38 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="false"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -32,7 +33,7 @@
 <createdTime>2022-02-21 21:33:55 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -46,7 +47,7 @@
 <createdTime>2022-02-21 21:34:15 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -55,44 +56,31 @@
 <dataTypeSize>20 CHAR</dataTypeSize>
 <ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="stars" id="8B8C928E-45A6-ABA8-1251-BDD2BEAD6373">
+<Attribute name="gender" id="2945F2F0-798F-8939-8D2C-EC669D604372">
 <createdBy>maxim</createdBy>
-<createdTime>2022-02-21 21:34:26 UTC</createdTime>
+<createdTime>2022-03-22 11:14:29 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="comment" id="283DB8D5-B47B-E09F-D991-876126C3C419">
-<createdBy>maxim</createdBy>
-<createdTime>2022-02-21 21:34:40 UTC</createdTime>
-<ownerDesignName>model</ownerDesignName>
-<engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>100 CHAR</dataTypeSize>
-<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="published" id="D1047776-9DE9-F535-E95E-50A78E72092C">
+<Attribute name="birthday" id="D1047776-9DE9-F535-E95E-50A78E72092C">
 <createdBy>maxim</createdBy>
 <createdTime>2022-02-21 21:34:53 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT042</logicalDatatype>
+<logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="email" id="E3D47BBD-C835-07B0-9D00-B9B39B33227A">
@@ -100,7 +88,7 @@
 <createdTime>2022-02-21 21:35:07 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -109,16 +97,100 @@
 <dataTypeSize>100 CHAR</dataTypeSize>
 <ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="phonenumber" id="8DCEAE59-C0A1-EB25-BF0F-E9A908553379">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:21:14 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="street" id="C183ECB5-17BA-CB73-75B8-F8A45F293E08">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:21:14 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="number" id="5EEE40C1-5325-F3A1-A93C-5B316A579AA0">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:21:14 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="city" id="E4BE35D4-9232-D811-BC15-C7EBCE7962EF">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:21:14 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="country" id="E5ED1BCF-2443-44EC-11BD-392B85853714">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:21:14 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="zip_code" id="601652C9-2F47-48A2-91B6-9B752360D98C">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:21:14 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4 CHAR</dataTypeSize>
+<ownDataTypeParameters>4 CHAR,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="DCA5E958-2206-1A31-19BD-D68E7850924F" name="Reviewer PK">
+<identifier id="DCA5E958-2206-1A31-19BD-D68E7850924F" name="Viewer PK">
 <createdBy>maxim</createdBy>
 <createdTime>2022-02-22 13:17:01 UTC</createdTime>
 <ownerDesignName>model</ownerDesignName>
 <engineerTo>
-<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+<item key="7EC1B0A1-0477-3797-6481-EF8D3735EB1D" value="true"/>
 </engineerTo>
 <pk>true</pk>
+<newElementsIDs>84AAFC40-F191-9C33-EFF1-D2A9A47BE12A</newElementsIDs>
 <usedAttributes>
 <attributeRef>84AAFC40-F191-9C33-EFF1-D2A9A47BE12A</attributeRef>
 </usedAttributes>

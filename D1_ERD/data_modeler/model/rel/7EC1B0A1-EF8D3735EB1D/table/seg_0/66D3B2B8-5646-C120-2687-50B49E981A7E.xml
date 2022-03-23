@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="66D3B2B8-5646-C120-2687-50B49E981A7E" name="Tickets">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<ordsAlias>relation_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="price" id="D6B90147-E09B-5C9D-D92D-D0F04793E8A7">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 22:30:19 UTC</createdTime>
+<generatorID>00AA7802-6C95-287C-ECC5-71DC90E440DE</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="playtime" id="38659B26-AECA-D5D6-5182-24B7EE0F099D">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 22:30:19 UTC</createdTime>
+<generatorID>7EEF4C62-8CBE-4A87-B4AB-9027D9E6275C</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="movie_id" id="BF7E089D-479D-70C4-8F7B-118AB32628A4">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2F04BAC8-3512-78A7-87C3-0BA0C989E388" referredColumn="BDA55822-7DB5-F409-0E60-772252E16D26"/>
+</associations>
+</Column>
+<Column name="viewer_id" id="497A48FD-7E0F-E0B6-6BD1-676D6019A8E8">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="598064B3-4EE6-4AF8-10FB-64B3D8EAC2E7" referredColumn="297E8F3D-C859-6CE6-D81F-112BEB8307EE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B5C0B7CB-C021-BD59-5F52-52538E4140DE" name="Relation_1_PK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="497A48FD-7E0F-E0B6-6BD1-676D6019A8E8"/>
+<colUsage columnID="BF7E089D-479D-70C4-8F7B-118AB32628A4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="87E90DDD-FEE7-018A-9A31-9F1F4B52637B" name="fk_ticket_viewer">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<generatorID>A86F29F3-01E7-E2DA-A51E-855A910C4689</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="497A48FD-7E0F-E0B6-6BD1-676D6019A8E8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A550D095-9BFE-0F01-2BBE-3D169FA67653" name="fk_ticket_movie">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:33:09 UTC</createdTime>
+<generatorID>A86F29F3-01E7-E2DA-A51E-855A910C4689</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF7E089D-479D-70C4-8F7B-118AB32628A4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
