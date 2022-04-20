@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="14960637-C71C-BCEF-BD9E-2A08A6F2ECAD" name="Countries">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:39:37 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="countrycode" id="393F43EB-D35C-BF1F-9FD1-230A48D4FF37">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:44:44 UTC</createdTime>
+<generatorID>A49F5DAF-B7E0-94B8-88DB-5512956F82B3</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="country" id="910E8D41-1526-0E7C-3CEA-1F3E25E5DD09">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:44:44 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4B9DA87B-6F3E-3BA4-873F-BC333FB3D9B6" name="Countries_PK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:45:49 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="393F43EB-D35C-BF1F-9FD1-230A48D4FF37"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

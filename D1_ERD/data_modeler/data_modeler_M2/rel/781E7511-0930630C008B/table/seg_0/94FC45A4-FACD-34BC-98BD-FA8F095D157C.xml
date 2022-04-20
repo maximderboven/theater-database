@@ -1,0 +1,127 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="94FC45A4-FACD-34BC-98BD-FA8F095D157C" name="Movies">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>0BECA6C1-AD6A-8C3E-52A9-8BF9F765A963</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<ordsAlias>movie</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="movie_id" id="A92659F1-E3E5-E5A7-9AA9-D0C9FEB64328">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>6AE5AD1A-5738-6BE2-82B1-20D2F9F9115D</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="title" id="D7763089-0A5E-8799-C559-1746FFD01D37">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>F815F778-5829-320A-A9F3-1C1ED89DCC0E</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="release_date" id="03F4D913-4221-3BF7-6CA3-9F041391883D">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>A1C89FCC-CFBB-CDE4-E64B-4E2A9464B570</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="genre" id="2EE50AC5-4643-4BB7-CA40-8A32FE489457">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>8042271C-DDFF-980E-DD6B-108F8768A174</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="type" id="C07EFD2E-5D82-D162-60FF-39ADB55F3451">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>3B453215-895F-7D7C-5E53-20CBED6ED67F</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="runtime" id="CA5BFC6F-2B74-4223-0E35-CA1BD37CA5E4">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>20BFF1B4-7BF9-3406-BB1A-F97C4D56837B</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="plot" id="E3BFFC02-7D72-2859-3FBC-89A487FF0EF2">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>CB2142FD-9A62-FB08-CDDB-A644363670A3</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 CHAR</dataTypeSize>
+<ownDataTypeParameters>150 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="language" id="E2ACB7F2-1EC0-A81F-2A2E-EEB165DCEE01">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>89F68170-46A0-4654-145C-E7204E51EE29</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FDB399F1-303B-B2A0-72C1-E23B580677F2" name="Movie_PK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>70418EBF-57B9-A6C7-A9CB-4DCB48903635</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A92659F1-E3E5-E5A7-9AA9-D0C9FEB64328"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

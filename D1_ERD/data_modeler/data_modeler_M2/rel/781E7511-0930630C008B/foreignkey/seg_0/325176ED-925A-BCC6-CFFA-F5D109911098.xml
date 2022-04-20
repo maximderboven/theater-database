@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="325176ED-925A-BCC6-CFFA-F5D109911098" containerWithKeyObject="35BD062A-2A36-C460-001D-56F0EA1CED3B" localFKIndex="DE0E9F14-2C2C-ED47-33DE-544DAB61230C" name="fk_performance_hall">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>85CB8C82-A845-B139-C32B-53DFB8959A42</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<referredTableLongName>Halls</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2A28492B-D8F6-677D-80B8-ED1639AA0113</referredTableID>
+<keyObject>CA2CE60C-61BE-7AB8-A8B5-3D03C38CA4C0</keyObject>
+<referredKeyID>CA2CE60C-61BE-7AB8-A8B5-3D03C38CA4C0</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>hall_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

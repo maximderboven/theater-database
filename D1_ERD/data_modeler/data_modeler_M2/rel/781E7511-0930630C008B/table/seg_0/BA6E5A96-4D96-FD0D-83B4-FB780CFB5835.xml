@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BA6E5A96-4D96-FD0D-83B4-FB780CFB5835" name="Locations">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:39:30 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="location_id" id="933ECDE3-C4B8-9194-90DC-0B09A8B45440">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:42:45 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="street" id="D91BC97C-2812-62E0-9D33-83CFC18EE1D0">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:42:45 UTC</createdTime>
+<generatorID>BBF93961-4CD6-3946-F54B-CB816B98EAB9</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="number" id="868E2C24-76E3-31FB-6640-E448A9878645">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:42:45 UTC</createdTime>
+<generatorID>29A86A9F-57A6-01F3-96B3-DAACB51816EA</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="countrycode" id="84391BC9-8945-BA7B-4344-D60374A1E5C4">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:42:45 UTC</createdTime>
+<generatorID>A49F5DAF-B7E0-94B8-88DB-5512956F82B3</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CB01F0AD-CDC0-DD42-7162-CC2429E283DD" referredColumn="1DB4A2BF-A440-53A9-67D9-4C3D349C3D9F"/>
+</associations>
+</Column>
+<Column name="zipcode" id="CE571F79-089D-AB8A-37DD-1F041B96DEB4">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:42:45 UTC</createdTime>
+<generatorID>2415D8B7-8567-A8F6-6C63-2DB7DDDAB9E8</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4 CHAR</dataTypeSize>
+<ownDataTypeParameters>4 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CB01F0AD-CDC0-DD42-7162-CC2429E283DD" referredColumn="B1CA940C-4BDE-8576-16FF-084421E1E33A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="63E23232-CB3E-5527-F434-03A674967434" name="Locations_PK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:47:09 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="933ECDE3-C4B8-9194-90DC-0B09A8B45440"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="84350CC6-30B4-EEC3-8425-CF69BE7ED327" name="fk_location_zipcode">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:47:44 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE571F79-089D-AB8A-37DD-1F041B96DEB4"/>
+<colUsage columnID="84391BC9-8945-BA7B-4344-D60374A1E5C4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

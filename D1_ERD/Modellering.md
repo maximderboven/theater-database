@@ -19,12 +19,13 @@ Conceptueel Model
 ---
 - Viewer: birthday < NOW()
 - Viewer: gender - M, F or X
-- Actor: Email must contain @
+- Actor: Phonenumber must begin with +(32/31/etc)
 
 
     Tijd
 ---
-- Movie: release_date, startTime
+- Movie: release_date
+- Performance: startTime
 - Viewer: birthday
 
 
@@ -51,7 +52,7 @@ Verschillen na Normalisatie
 - Extra entiteit: Zipcodes
 - Extra entities: Countries
 - Extra entities: Locations
-- Tabel tickets heeft gewijzigde samengestelde sleutel omdat je als viewer bijvoorbeeld dezelfde film kunt kijken in dezelfde zaal op een ander moment.
-  - PK: (viewer_id, movie_id, startTime)
+- Extra entities: Performances
+- Extra entities: Tickets
 
 ![Finaal Model](Finaal_ERD_M2.png)

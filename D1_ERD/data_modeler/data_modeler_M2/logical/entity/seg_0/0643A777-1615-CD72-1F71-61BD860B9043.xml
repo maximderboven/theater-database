@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0643A777-1615-CD72-1F71-61BD860B9043" name="MovieType">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:04:04 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="movietype_id" id="042849FF-ECC6-A6E4-167C-45D2B93B099B">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:06:37 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="genre" id="E9631299-9895-7C6F-296A-D5ECA6B2BF76">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:04:56 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="type" id="F97603EB-5961-C0CF-C428-A8FBA13F3C6E">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:05:28 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8AFDA341-89A1-7845-F18D-D5A9F62A9B64" name="MovieType PK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-22 11:06:31 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<engineerTo>
+<item key="781E7511-8D55-DBD6-6D7F-0930630C008B" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>042849FF-ECC6-A6E4-167C-45D2B93B099B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="35BD062A-2A36-C460-001D-56F0EA1CED3B" name="Performances">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<ordsAlias>relation_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="performance_id" id="4F630AC7-EE68-0C0D-6130-5E9A35DA1A7E">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 10:07:52 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="movie_id" id="120F0383-B6AC-02C3-3AA4-A1EE197255C6">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="13E842F2-93C9-41F0-44AB-42A729534E68" referredColumn="A92659F1-E3E5-E5A7-9AA9-D0C9FEB64328"/>
+</associations>
+</Column>
+<Column name="hall_id" id="DB2BE668-5B96-0124-3529-057DAF8EA6A4">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="325176ED-925A-BCC6-CFFA-F5D109911098" referredColumn="F0E4846A-1EA5-B3DE-54E6-4637724EAE72"/>
+</associations>
+</Column>
+<Column name="startTime" id="8B2898AF-124F-A6D7-2DF9-024336794D58">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:57:35 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3931F89F-9232-1841-03A4-13397A71BB1D" name="Relation_3_PK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F630AC7-EE68-0C0D-6130-5E9A35DA1A7E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="15BD2E80-A064-1A30-03E3-1D6C96104B4C" name="fk_performance_movie">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>85CB8C82-A845-B139-C32B-53DFB8959A42</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="120F0383-B6AC-02C3-3AA4-A1EE197255C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DE0E9F14-2C2C-ED47-33DE-544DAB61230C" name="fk_performance_hall">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>85CB8C82-A845-B139-C32B-53DFB8959A42</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DB2BE668-5B96-0124-3529-057DAF8EA6A4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

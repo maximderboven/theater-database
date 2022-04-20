@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="811FD5A6-5D4B-CE95-F60A-4ABAE5C99F7C" name="Tickets">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<ordsAlias>relation_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="viewer_id" id="F1C78165-43E3-AC4A-862F-2D42CDD30390">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="845CB589-A724-1633-E5E9-2226A4FACACC" referredColumn="7737B6F6-C214-44F6-0BE8-17AC819B3ED8"/>
+</associations>
+</Column>
+<Column name="performance_id" id="A36A97BF-D8B0-86FD-CB97-765D4867F9BC">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="803A156E-599D-3E65-5D18-766A297BEE6D" referredColumn="4F630AC7-EE68-0C0D-6130-5E9A35DA1A7E"/>
+</associations>
+</Column>
+<Column name="price" id="5CEE13FD-68A9-D48F-AED9-9733E7CD1783">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:55:18 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="45C33FB4-D1D1-7D32-4754-0FE3241538A2" name="Relation_1_PK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F1C78165-43E3-AC4A-862F-2D42CDD30390"/>
+<colUsage columnID="A36A97BF-D8B0-86FD-CB97-765D4867F9BC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E68E81F1-D96D-8F6C-AF03-3491FFEC87BD" name="fk_ticket_viewer">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>A86F29F3-01E7-E2DA-A51E-855A910C4689</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F1C78165-43E3-AC4A-862F-2D42CDD30390"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="20AFA6F5-BE8D-FAFB-B4BF-AE6A9649163E" name="fk_ticket_performance">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 10:09:17 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A36A97BF-D8B0-86FD-CB97-765D4867F9BC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

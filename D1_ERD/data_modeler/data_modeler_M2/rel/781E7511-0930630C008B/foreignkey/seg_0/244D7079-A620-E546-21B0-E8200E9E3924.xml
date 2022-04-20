@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="244D7079-A620-E546-21B0-E8200E9E3924" containerWithKeyObject="2A28492B-D8F6-677D-80B8-ED1639AA0113" localFKIndex="02017CC3-D2CB-228B-1D7D-CADED1886C9C" name="fk_hall_theather">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:38:49 UTC</createdTime>
+<generatorID>2655F20A-0EE5-1844-20F1-23FA190F1B99</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<referredTableLongName>Theathers</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F302B5A8-BBCE-9286-91BB-F1B602660C07</referredTableID>
+<keyObject>F5357F60-7AFB-4DBC-2835-3BFC04B3487B</keyObject>
+<referredKeyID>F5357F60-7AFB-4DBC-2835-3BFC04B3487B</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>theather_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

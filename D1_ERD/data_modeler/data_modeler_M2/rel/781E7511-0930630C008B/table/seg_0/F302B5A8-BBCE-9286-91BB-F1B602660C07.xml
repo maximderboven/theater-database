@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F302B5A8-BBCE-9286-91BB-F1B602660C07" name="Theathers">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>7CA276B3-5A2E-D48E-FC96-B2B517805838</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<ordsAlias>theather</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="theather_id" id="3DDC7BF5-5FFA-B807-15F6-485F4498ED97">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>393C4091-5A49-9E92-BD61-2B3DAA93336F</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="F6AD9DDD-2A74-B048-1E88-80D55A1DA764">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>06748CC8-05B4-D76C-5CE1-04A42D5C2034</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="shop" id="FB50796D-AD58-0E7B-CFE0-1B25190AF29F">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>3D02CAB9-D7B8-F607-0827-CB6C20680908</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="phonenumber" id="807297FE-BB85-33CB-D464-97438BE9DB79">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>1306BB70-E49A-467D-1B54-03F715CF0769</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="location_id" id="8795077E-3445-BCF8-32C5-40052A91705D">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:49:37 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FD066505-11AF-4635-3987-E764D74EFB39" referredColumn="933ECDE3-C4B8-9194-90DC-0B09A8B45440"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F5357F60-7AFB-4DBC-2835-3BFC04B3487B" name="Theather_PK">
+<createdBy>maxim</createdBy>
+<createdTime>2022-02-22 13:20:11 UTC</createdTime>
+<generatorID>2655F20A-0EE5-1844-20F1-23FA190F1B99</generatorID>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3DDC7BF5-5FFA-B807-15F6-485F4498ED97"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9ABAE222-5384-EFD0-FE7A-40EF850B46D1" name="fk_theather_location">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 09:49:51 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8795077E-3445-BCF8-32C5-40052A91705D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="Theathers_CK_phonenumber" directorySegmentName="seg_0" id="F22B5A66-8693-E2A0-1532-926301711A25">
+<createdBy>maxim</createdBy>
+<createdTime>2022-04-17 14:25:03 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<rule><![CDATA[phonenumber like '+%_']]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

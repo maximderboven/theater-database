@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="803A156E-599D-3E65-5D18-766A297BEE6D" containerWithKeyObject="811FD5A6-5D4B-CE95-F60A-4ABAE5C99F7C" localFKIndex="20AFA6F5-BE8D-FAFB-B4BF-AE6A9649163E" name="fk_ticket_performance">
+<createdBy>maxim</createdBy>
+<createdTime>2022-03-24 10:09:17 UTC</createdTime>
+<ownerDesignName>data_modeler_M2</ownerDesignName>
+<referredTableLongName>Performances</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>35BD062A-2A36-C460-001D-56F0EA1CED3B</referredTableID>
+<keyObject>3931F89F-9232-1841-03A4-13397A71BB1D</keyObject>
+<referredKeyID>3931F89F-9232-1841-03A4-13397A71BB1D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>performance_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
