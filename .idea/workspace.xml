@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2e34a21-2380-4b60-98d6-05b86e5f11a0" name="Changes" comment="M1: reflectie.md ingevuld (relaties &amp; velden)">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Groeiproject - Maxim Derboven.dir/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Groeiproject - Maxim Derboven.dir/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Groeiproject - Maxim Derboven.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Groeiproject - Maxim Derboven.dir/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Groeiproject - Maxim Derboven.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/D1_ERD/Modellering.md" beforeDir="false" afterPath="$PROJECT_DIR$/D1_ERD/Modellering.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3_DDL/CREATE_database_Movies.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D3_DDL/CREATE_database_Movies.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3_DDL/Query_output.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3_DDL/ignore.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D4_DML/ignore.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D5_QUERY/ignore.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,11 +32,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/maxim/OneDrive - Karel de Grote Hogeschool/2de jaar/Databanken 2/Groeiproject - Maxim Derboven",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle"
+    ],
+    "RunConfigurationTargetLRU": [
+      "463326a7-06c1-4f1c-82e0-2c0bdf611187/schema/\"PROJECT\""
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Database Script.queries.sql">
+    <configuration name="CREATE_database_Movies.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/D3_DDL/CREATE_database_Movies.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="463326a7-06c1-4f1c-82e0-2c0bdf611187" namespace="schema/&quot;PROJECT&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FILL_database_Movies.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/D4_DML/FILL_database_Movies.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="463326a7-06c1-4f1c-82e0-2c0bdf611187" namespace="schema/&quot;PROJECT&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="queries.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/D5_QUERY/queries.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="463326a7-06c1-4f1c-82e0-2c0bdf611187" namespace="schema/&quot;PROJECT&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Database Script.queries.sql" />
+        <item itemvalue="Database Script.FILL_database_Movies.sql" />
+        <item itemvalue="Database Script.CREATE_database_Movies.sql" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -48,6 +85,8 @@
       <option name="presentableId" value="Default" />
       <updated>1644397503100</updated>
       <workItem from="1644397506666" duration="2418000" />
+      <workItem from="1651002980370" duration="641000" />
+      <workItem from="1651003647577" duration="10076000" />
     </task>
     <task id="LOCAL-00001" summary="M1: reflectie.md ingevuld (relaties &amp; velden)">
       <created>1644399934274</created>

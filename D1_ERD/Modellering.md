@@ -19,7 +19,7 @@ Conceptueel Model
 ---
 - Movie: playtime between 30 and 200
 - Viewer: gender - M, F or X
-- Actor: Phonenumber must begin with +(32/31/etc)
+- Theather: Phonenumber must begin with +(32/31/etc)
 
 
     Tijd
