@@ -15,7 +15,7 @@ Milestone 3: Creatie Databank
 
       Table Counts
 ---
-![Table counts](./screenshots/table_count.PNG)
+![Table counts](./screenshots/table_count.png)
 
     @query 1: Relatie Veel-op-veel
 
@@ -24,7 +24,7 @@ Milestone 3: Creatie Databank
 	JOIN PERFORMANCES p ON m.MOVIE_ID = p.MOVIE_ID
 	JOIN HALLS h ON p.HALL_ID = h.HALL_ID;
 --- 
-![query 1: Relatie Veel-op-veel](./screenshots/veel_op_veel.PNG)
+![query 1: Relatie Veel-op-veel](./screenshots/veel_op_veel.png)
 
 
 
@@ -36,7 +36,7 @@ Milestone 3: Creatie Databank
         JOIN PERFORMANCES p ON t.PERFORMANCE_ID = p.PERFORMANCE_ID
         JOIN HALLS h ON p.HALL_ID = h.HALL_ID;
 --- 
-![query 2: 2 niveau’s diep](./screenshots/2_niveaus_diep.PNG)
+![query 2: 2 niveau’s diep](./screenshots/2_niveaus_diep.png)
 
     @query 3: viewer_locations
 
@@ -46,7 +46,7 @@ Milestone 3: Creatie Databank
         JOIN ZIPCODES z ON l.COUNTRYCODE = z.COUNTRYCODE AND l.ZIPCODE = z.ZIPCODE
         JOIN COUNTRIES c ON z.COUNTRYCODE = c.COUNTRYCODE;
 --- 
-![query 3: player locations](./screenshots/viewer_locations.PNG)
+![query 3: player locations](./screenshots/viewer_locations.png)
 
     @query 4: theather_locations
 	SELECT t.NAME,t.PHONENUMBER, l.STREET, l.HOUSENUMBER, z.ZIPCODE, z.CITY, c.COUNTRY
@@ -55,7 +55,7 @@ Milestone 3: Creatie Databank
         JOIN ZIPCODES z ON l.COUNTRYCODE = z.COUNTRYCODE AND l.ZIPCODE = z.ZIPCODE
         JOIN COUNTRIES c ON z.COUNTRYCODE = c.COUNTRYCODE;
 --- 
-![query 4: Game studios](./screenshots/theather_locations.PNG)
+![query 4: Game studios](./screenshots/theather_locations.png)
 
 
   Bewijs Domeinen - constraints M2
@@ -63,18 +63,18 @@ Milestone 3: Creatie Databank
     Movie: playtime between 30 and 200
 
 ---
-![Bewijs Zipcodes](./screenshots/bewijs_playtime.PNG)
+![Bewijs Zipcodes](./screenshots/bewijs_playtime.png)
 
     Viewer: gender - M, F or X
 
 ---
-![Bewijs email](./screenshots/bewijs_gender.PNG)
+![Bewijs email](./screenshots/bewijs_gender.png)
 
 
     Theather: Phonenumber must begin with +(32/31/etc)
 
 ---
 
-![Bewijs release_patch_dates](./screenshots/bewijs_phonenumber.PNG)
+![Bewijs release_patch_dates](./screenshots/bewijs_phonenumber.png)
 
 
