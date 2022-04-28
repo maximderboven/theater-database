@@ -95,16 +95,16 @@ INSERT INTO THEATHERS (NAME, SHOP, PHONENUMBER, LOCATION_ID)
 VALUES ('Artscape Theatre Centre', 1, '+27214109800',
         (SELECT location_id FROM LOCATIONS WHERE street = 'D.F. Malan St' AND housenumber = 25));
 -- Halls
-INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, SCREENTYPE, THEATHER_ID)
-VALUES (150, 2, 'MDX', (SELECT theather_id FROM THEATHERS WHERE name = 'Cinema Galeries'));
-INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, SCREENTYPE, THEATHER_ID)
-VALUES (130, 2, '4D', (SELECT theather_id FROM THEATHERS WHERE name = 'Apollo Theater'));
-INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, SCREENTYPE, THEATHER_ID)
-VALUES (60, 3, '3D', (SELECT theather_id FROM THEATHERS WHERE name = 'Théâtre de la Ville'));
-INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, SCREENTYPE, THEATHER_ID)
-VALUES (199, 1, 'Digital', (SELECT theather_id FROM THEATHERS WHERE name = 'Pathé City'));
-INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, SCREENTYPE, THEATHER_ID)
-VALUES (100, 2, 'MDX', (SELECT theather_id FROM THEATHERS WHERE name = 'Artscape Theatre Centre'));
+INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, HALLNUMBER, SCREENTYPE, THEATHER_ID)
+VALUES (150, 2, 13,'MDX', (SELECT theather_id FROM THEATHERS WHERE name = 'Cinema Galeries'));
+INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, HALLNUMBER, SCREENTYPE, THEATHER_ID)
+VALUES (130, 2, 4,'4D', (SELECT theather_id FROM THEATHERS WHERE name = 'Apollo Theater'));
+INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, HALLNUMBER, SCREENTYPE, THEATHER_ID)
+VALUES (60, 3, 8,'3D', (SELECT theather_id FROM THEATHERS WHERE name = 'Théâtre de la Ville'));
+INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, HALLNUMBER, SCREENTYPE, THEATHER_ID)
+VALUES (199, 1, 9,'Digital', (SELECT theather_id FROM THEATHERS WHERE name = 'Pathé City'));
+INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, HALLNUMBER, SCREENTYPE, THEATHER_ID)
+VALUES (100, 2, 2,'MDX', (SELECT theather_id FROM THEATHERS WHERE name = 'Artscape Theatre Centre'));
 -- Performances
 INSERT INTO PERFORMANCES (MOVIE_ID, HALL_ID, STARTTIME, ENDTIME)
 VALUES ((SELECT movie_id FROM MOVIES WHERE title = 'The Dark Knight'), (SELECT hall_id
@@ -140,17 +140,17 @@ VALUES ((SELECT movie_id FROM MOVIES WHERE title = 'Breaking Bad'), (SELECT hall
 INSERT INTO TICKETS
 VALUES ((SELECT viewer_id FROM VIEWERS WHERE firstname = 'Diego' AND lastname = 'Luiken'),
         (SELECT performance_id FROM PERFORMANCES WHERE movie_id = (SELECT movie_id FROM MOVIES WHERE title = 'Avatar')),
-        10.50);
+        2,10.50);
 INSERT INTO TICKETS
 VALUES ((SELECT viewer_id FROM VIEWERS WHERE firstname = 'Agnes' AND lastname = 'R. Sutton'), (SELECT performance_id
                                                                                                FROM PERFORMANCES
                                                                                                WHERE movie_id = (SELECT movie_id FROM MOVIES WHERE title = 'The Dark Knight')),
-        12);
+        4,12);
 INSERT INTO TICKETS
 VALUES ((SELECT viewer_id FROM VIEWERS WHERE firstname = 'Ogier' AND lastname = 'Dennis'), (SELECT performance_id
                                                                                             FROM PERFORMANCES
                                                                                             WHERE movie_id = (SELECT movie_id FROM MOVIES WHERE title = 'Titanic')),
-        10.50);
+        5,10.50);
 INSERT INTO TICKETS
 VALUES ((SELECT viewer_id FROM VIEWERS WHERE firstname = 'Sylvia' AND lastname = 'B. Ralston'), (SELECT performance_id
                                                                                                  FROM PERFORMANCES
@@ -158,9 +158,9 @@ VALUES ((SELECT viewer_id FROM VIEWERS WHERE firstname = 'Sylvia' AND lastname =
                                                                                                        (SELECT movie_id
                                                                                                         FROM MOVIES
                                                                                                         WHERE title = 'The Lord of the Rings: The Return of the King')),
-        12);
+        10,12);
 INSERT INTO TICKETS
 VALUES ((SELECT viewer_id FROM VIEWERS WHERE firstname = 'Shaniqua' AND lastname = 'Braams'), (SELECT performance_id
                                                                                                FROM PERFORMANCES
                                                                                                WHERE movie_id = (SELECT movie_id FROM MOVIES WHERE title = 'Breaking Bad')),
-        10.50);
+        15,10.50);

@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2e34a21-2380-4b60-98d6-05b86e5f11a0" name="Changes" comment="M1: reflectie.md ingevuld (relaties &amp; velden)">
+      <change afterPath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_h.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/D7_PACKAGES/execute_package_code.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/D1_ERD/Modellering.md" beforeDir="false" afterPath="$PROJECT_DIR$/D1_ERD/Modellering.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/D3_DDL/CREATE_database_Movies.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D3_DDL/CREATE_database_Movies.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/D3_DDL/Query_output.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/D3_DDL/ignore.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/D4_DML/ignore.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/D5_QUERY/ignore.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D4_DML/FILL_database_Movies.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D4_DML/FILL_database_Movies.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/D7_PACKAGES/ignore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +38,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/maxim/OneDrive - Karel de Grote Hogeschool/2de jaar/Databanken 2/Groeiproject - Maxim Derboven",
+    "last_opened_file_path": "C:/Users/maxim/OneDrive - Karel de Grote Hogeschool/2de jaar/Databanken 2/Groeiproject - Maxim Derboven/D7_PACKAGES/PKG_movies_h.sql",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   },
   "keyToStringList": {
@@ -45,34 +46,53 @@
       "oracle"
     ],
     "RunConfigurationTargetLRU": [
-      "463326a7-06c1-4f1c-82e0-2c0bdf611187/schema/\"PROJECT\""
+      "463326a7-06c1-4f1c-82e0-2c0bdf611187/schema/\"PROJECT\"",
+      "463326a7-06c1-4f1c-82e0-2c0bdf611187"
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Database Script.queries.sql">
-    <configuration name="CREATE_database_Movies.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
-      <script-file value="$PROJECT_DIR$/D3_DDL/CREATE_database_Movies.sql" />
-      <script-mode>FILE</script-mode>
-      <data-source id="463326a7-06c1-4f1c-82e0-2c0bdf611187" namespace="schema/&quot;PROJECT&quot;" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Database Script.execute_package_code.sql (1)">
     <configuration name="FILL_database_Movies.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/D4_DML/FILL_database_Movies.sql" />
       <script-mode>FILE</script-mode>
       <data-source id="463326a7-06c1-4f1c-82e0-2c0bdf611187" namespace="schema/&quot;PROJECT&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="queries.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
-      <script-file value="$PROJECT_DIR$/D5_QUERY/queries.sql" />
+    <configuration name="PKG_movies_b.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="463326a7-06c1-4f1c-82e0-2c0bdf611187" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PKG_movies_h.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_h.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="463326a7-06c1-4f1c-82e0-2c0bdf611187" />
+      <method v="2" />
+    </configuration>
+    <configuration name="execute_package_code.sql (1)" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_h.sql" />
+      <script-file value="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" />
+      <script-file value="$PROJECT_DIR$/D7_PACKAGES/execute_package_code.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="463326a7-06c1-4f1c-82e0-2c0bdf611187" />
+      <method v="2" />
+    </configuration>
+    <configuration name="execute_package_code.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" />
+      <script-file value="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_h.sql" />
+      <script-file value="$PROJECT_DIR$/D7_PACKAGES/execute_package_code.sql" />
       <script-mode>FILE</script-mode>
       <data-source id="463326a7-06c1-4f1c-82e0-2c0bdf611187" namespace="schema/&quot;PROJECT&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Database Script.queries.sql" />
+        <item itemvalue="Database Script.execute_package_code.sql (1)" />
+        <item itemvalue="Database Script.execute_package_code.sql" />
+        <item itemvalue="Database Script.PKG_movies_h.sql" />
+        <item itemvalue="Database Script.PKG_movies_b.sql" />
         <item itemvalue="Database Script.FILL_database_Movies.sql" />
-        <item itemvalue="Database Script.CREATE_database_Movies.sql" />
       </list>
     </recent_temporary>
   </component>
@@ -86,7 +106,8 @@
       <updated>1644397503100</updated>
       <workItem from="1644397506666" duration="2418000" />
       <workItem from="1651002980370" duration="641000" />
-      <workItem from="1651003647577" duration="10076000" />
+      <workItem from="1651003647577" duration="12705000" />
+      <workItem from="1651128210133" duration="11177000" />
     </task>
     <task id="LOCAL-00001" summary="M1: reflectie.md ingevuld (relaties &amp; velden)">
       <created>1644399934274</created>

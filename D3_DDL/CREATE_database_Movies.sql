@@ -38,6 +38,7 @@ CREATE TABLE halls (
     hall_id     INTEGER GENERATED ALWAYS AS IDENTITY,
     seat_amount INTEGER,
     floor       INTEGER NOT NULL,
+    hallnumber  INTEGER NOT NULL,
     screentype  VARCHAR2(25 CHAR),
     theather_id INTEGER NOT NULL
 );
@@ -56,7 +57,7 @@ ALTER TABLE locations ADD CONSTRAINT location_pk PRIMARY KEY ( location_id );
 
 CREATE TABLE movies (
     movie_id     INTEGER GENERATED ALWAYS AS IDENTITY,
-    title        VARCHAR2(50 CHAR) NOT NULL,
+    title        VARCHAR2(50 CHAR) NOT NULL UNIQUE,
     release_date DATE NOT NULL,
     genre        VARCHAR2(20 CHAR),
     type         VARCHAR2(20 CHAR) NOT NULL,
@@ -96,11 +97,13 @@ ALTER TABLE theathers ADD CONSTRAINT theather_pk PRIMARY KEY ( theather_id );
 CREATE TABLE tickets (
     viewer_id      INTEGER NOT NULL,
     performance_id INTEGER NOT NULL,
+    seatnumber     INTEGER NOT NULL,
     price          NUMBER NOT NULL
+
 );
 
 ALTER TABLE tickets ADD CONSTRAINT ticket_pk PRIMARY KEY ( viewer_id,
-                                                               performance_id );
+                                                               performance_id,seatnumber );
 
 CREATE TABLE viewers (
     viewer_id   INTEGER GENERATED ALWAYS AS IDENTITY,
@@ -108,7 +111,7 @@ CREATE TABLE viewers (
     lastname    VARCHAR2(20 CHAR),
     birthdate   DATE,
 	gender		VARCHAR2(1 CHAR) NOT NULL,
-    email       VARCHAR2(100 CHAR) NOT NULL,
+    email       VARCHAR2(100 CHAR) NOT NULL UNIQUE,
     location_id INTEGER NOT NULL
 );
 
@@ -126,6 +129,11 @@ CREATE TABLE zipcodes (
 
 ALTER TABLE zipcodes ADD CONSTRAINT zipcode_pk PRIMARY KEY ( zipcode,
                                                               countrycode );
+ALTER TABLE halls
+    ADD CONSTRAINT unique_hall UNIQUE (hallnumber, floor);
+
+ALTER TABLE performances
+    ADD CONSTRAINT unique_performance UNIQUE (starttime, movie_id, hall_id);
 
 ALTER TABLE halls
     ADD CONSTRAINT fk_hall_theather FOREIGN KEY ( theather_id )

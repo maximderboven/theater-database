@@ -3,5 +3,8 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/D3_DDL/CREATE_database_Movies.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/D4_DML/FILL_database_Movies.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/D7_PACKAGES/PKG_movies_h.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/D7_PACKAGES/execute_package_code.sql" dialect="Oracle" />
   </component>
 </project>
