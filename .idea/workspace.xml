@@ -4,10 +4,8 @@
     <list default="true" id="c2e34a21-2380-4b60-98d6-05b86e5f11a0" name="Changes" comment="fixed small error in M4">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_src_/schema/PROJECT.-dZbGA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_src_/schema/PROJECT.-dZbGA.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_staging_/schema/PROJECT.-dZbGA/package/PKG_MOVIES.NunJvw/body/PKG_MOVIES.NunJvw.sql" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_staging_/schema/PROJECT.-dZbGA/package/PKG_MOVIES.NunJvw/body/PKG_MOVIES.NunJvw.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/D7_PACKAGES/execute_package_code.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D7_PACKAGES/execute_package_code.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/maxim/OneDrive - Karel de Grote Hogeschool/2de jaar/Databanken 2/Groeiproject - Maxim Derboven/D7_PACKAGES/PKG_movies_h.sql",
+    "last_opened_file_path": "C:/Users/maxim/Desktop/maxim.derboven",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   },
   "keyToStringList": {
@@ -106,6 +104,7 @@
       <workItem from="1651002980370" duration="641000" />
       <workItem from="1651003647577" duration="12705000" />
       <workItem from="1651128210133" duration="18367000" />
+      <workItem from="1651157945182" duration="1013000" />
     </task>
     <task id="LOCAL-00001" summary="M1: reflectie.md ingevuld (relaties &amp; velden)">
       <created>1644399934274</created>
