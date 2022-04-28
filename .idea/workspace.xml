@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2e34a21-2380-4b60-98d6-05b86e5f11a0" name="Changes" comment="M1: reflectie.md ingevuld (relaties &amp; velden)">
-      <change afterPath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_h.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/D7_PACKAGES/execute_package_code.sql" afterDir="false" />
+    <list default="true" id="c2e34a21-2380-4b60-98d6-05b86e5f11a0" name="Changes" comment="fixed small error in M4">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_staging_/schema/PROJECT.-dZbGA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_staging_/schema/PROJECT.-dZbGA/package/PKG_MOVIES.NunJvw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_staging_/schema/PROJECT.-dZbGA/package/PKG_MOVIES.NunJvw/body/PKG_MOVIES.NunJvw.base.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_staging_/schema/PROJECT.-dZbGA/package/PKG_MOVIES.NunJvw/body/PKG_MOVIES.NunJvw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_staging_/schema/PROJECT.-dZbGA/package/PKG_MOVIES.NunJvw/body/PKG_MOVIES.NunJvw.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_src_/schema/PROJECT.-dZbGA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_src_/schema/PROJECT.-dZbGA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/D3_DDL/CREATE_database_Movies.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D3_DDL/CREATE_database_Movies.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/D4_DML/FILL_database_Movies.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D4_DML/FILL_database_Movies.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/D7_PACKAGES/ignore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_h.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_h.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +53,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Database Script.execute_package_code.sql (1)">
+  <component name="RunManager" selected="Database Script.PKG_movies_h.sql">
     <configuration name="FILL_database_Movies.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/D4_DML/FILL_database_Movies.sql" />
       <script-mode>FILE</script-mode>
@@ -107,7 +109,7 @@
       <workItem from="1644397506666" duration="2418000" />
       <workItem from="1651002980370" duration="641000" />
       <workItem from="1651003647577" duration="12705000" />
-      <workItem from="1651128210133" duration="11177000" />
+      <workItem from="1651128210133" duration="12984000" />
     </task>
     <task id="LOCAL-00001" summary="M1: reflectie.md ingevuld (relaties &amp; velden)">
       <created>1644399934274</created>
@@ -116,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644399934274</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added M4">
+      <created>1651139539715</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1651139539715</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +144,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="M1: reflectie.md ingevuld (relaties &amp; velden)" />
-    <option name="LAST_COMMIT_MESSAGE" value="M1: reflectie.md ingevuld (relaties &amp; velden)" />
+    <MESSAGE value="Added M4" />
+    <MESSAGE value="fixed small error in M4" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed small error in M4" />
   </component>
 </project>
