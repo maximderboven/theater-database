@@ -344,7 +344,7 @@ CREATE
                 V_R_VIEWERID := t_viewerid(RANDOM_NUMBER_IN_RANGE(1, t_viewerid.COUNT));
                 V_R_PERFORMANCEID := t_performanceid(RANDOM_NUMBER_IN_RANGE(1, t_performanceid.COUNT));
                 V_R_SEATNUMBER := RANDOM_NUMBER_IN_RANGE(1, 100);
-                V_R_PRICE := RANDOM_NUMBER_IN_RANGE(1, 20);
+                V_R_PRICE := ROUND(RANDOM_NUMBER_IN_RANGE(1, 20),2);
                 INSERT INTO TICKETS
                 VALUES (V_R_VIEWERID, V_R_PERFORMANCEID,
                         V_R_SEATNUMBER, V_R_PRICE);
