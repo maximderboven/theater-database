@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2e34a21-2380-4b60-98d6-05b86e5f11a0" name="Changes" comment="fixed small error in M4">
+    <list default="true" id="c2e34a21-2380-4b60-98d6-05b86e5f11a0" name="Changes" comment="M4 Done">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_src_/schema/PROJECT.-dZbGA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_src_/schema/PROJECT.-dZbGA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/D3_DDL/CREATE_database_Movies.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D3_DDL/CREATE_database_Movies.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_h.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_h.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/D7_PACKAGES/execute_package_code.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D7_PACKAGES/execute_package_code.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,27 +32,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/maxim/Desktop/maxim.derboven",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/maxim/Desktop/maxim.derboven&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;oracle&quot;
     ],
-    "RunConfigurationTargetLRU": [
-      "463326a7-06c1-4f1c-82e0-2c0bdf611187/schema/\"PROJECT\"",
-      "463326a7-06c1-4f1c-82e0-2c0bdf611187"
+    &quot;RunConfigurationTargetLRU&quot;: [
+      &quot;463326a7-06c1-4f1c-82e0-2c0bdf611187/schema/\&quot;PROJECT\&quot;&quot;,
+      &quot;463326a7-06c1-4f1c-82e0-2c0bdf611187&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "Oracle"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;Oracle&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Database Script.PKG_movies_h.sql">
     <configuration name="FILL_database_Movies.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/D4_DML/FILL_database_Movies.sql" />
@@ -109,6 +112,7 @@
       <workItem from="1651128210133" duration="18367000" />
       <workItem from="1651157945182" duration="1013000" />
       <workItem from="1651338530710" duration="10060000" />
+      <workItem from="1651409452671" duration="9332000" />
     </task>
     <task id="LOCAL-00001" summary="M1: reflectie.md ingevuld (relaties &amp; velden)">
       <created>1644399934274</created>

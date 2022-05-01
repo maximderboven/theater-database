@@ -3,6 +3,11 @@
 
 BEGIN
     PKG_MOVIES.EMPTY_TABLES();
+    PKG_MOVIES.BEWIJS_MILESTONE_5();
+END;
+
+BEGIN
+    PKG_MOVIES.EMPTY_TABLES();
 
 -- Movies
     PKG_MOVIES.ADD_MOVIE('Avatar', TO_DATE('2009-11-18', 'yyyy-mm-dd'), 'Action', 'Movie', 162,

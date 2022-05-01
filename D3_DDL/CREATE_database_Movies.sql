@@ -130,7 +130,7 @@ CREATE TABLE zipcodes (
 ALTER TABLE zipcodes ADD CONSTRAINT zipcode_pk PRIMARY KEY ( zipcode,
                                                               countrycode );
 ALTER TABLE halls
-    ADD CONSTRAINT unique_hall UNIQUE (hallnumber, floor);
+    ADD CONSTRAINT unique_hall UNIQUE (hallnumber, floor, theather_id);
 
 ALTER TABLE performances
     ADD CONSTRAINT unique_performance UNIQUE (starttime, movie_id, hall_id);

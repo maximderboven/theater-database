@@ -1,6 +1,6 @@
 -- In dit bestand zet je je package body. Hier zit al je code van je publieke functies, alsook private hulpfuncties.
 CREATE
-    OR REPLACE PACKAGE BODY PKG_movies AS
+    OR REPLACE PACKAGE BODY PKG_movies IS
     -- Random functions
     FUNCTION RANDOM_NUMBER_IN_RANGE(P_START IN NUMBER, P_END IN NUMBER)
         RETURN NUMBER
@@ -11,15 +11,6 @@ CREATE
         RETURN R_RANDOM_NUMBER;
     END RANDOM_NUMBER_IN_RANGE;
 
-    FUNCTION RANDOM_TIME_IN_RANGE(P_START IN TIMESTAMP, P_END IN TIMESTAMP)
-        RETURN TIMESTAMP
-        IS
-        R_RANDOM_TIME TIMESTAMP;
-    BEGIN
-        R_RANDOM_TIME := P_START + (P_END - P_START) * DBMS_RANDOM.VALUE;
-        RETURN R_RANDOM_TIME;
-    END RANDOM_TIME_IN_RANGE;
-
     FUNCTION RANDOM_DATE_IN_RANGE(P_START IN DATE, P_END IN DATE)
         RETURN DATE
         IS
@@ -29,26 +20,28 @@ CREATE
         RETURN R_RANDOM_DATE;
     END RANDOM_DATE_IN_RANGE;
 
-    TYPE t_string_array IS VARRAY(10) OF VARCHAR2(50);
+
     FUNCTION RANDOM_MOVIE_TITLE
         RETURN VARCHAR2
         IS
+        TYPE t_string_array IS VARRAY(10) OF VARCHAR2(50);
         N        PLS_INTEGER;
         a_movies t_string_array := t_string_array('The Godfather', 'Memory', 'The Duke', 'Sonic The Hedgehog',
                                                   'Fantastic Beasts and where to find them', 'Louise',
                                                   'Downton Abbey', 'Maya de bij', 'Encanto', 'A Hero');
     BEGIN
-        N := RANDOM_NUMBER_IN_RANGE(0, a_movies.COUNT);
+        N := RANDOM_NUMBER_IN_RANGE(1, 10);
         RETURN a_movies(N);
     END RANDOM_MOVIE_TITLE;
 
     FUNCTION RANDOM_SCREENTYPE
         RETURN VARCHAR2
         IS
+        TYPE t_string_array IS VARRAY(6) OF VARCHAR2(10);
         N             PLS_INTEGER;
         a_screentypes t_string_array := t_string_array('MDX', '4D', '3D', 'Digital', 'IMAX', '2D');
     BEGIN
-        N := RANDOM_NUMBER_IN_RANGE(0, a_screentypes.COUNT);
+        N := RANDOM_NUMBER_IN_RANGE(1, 6);
         RETURN a_screentypes(N);
     END RANDOM_SCREENTYPE;
 
@@ -156,55 +149,27 @@ CREATE
 
 
     -- Generate functions
-    PROCEDURE BEWIJS_MILESTONE_5
-        IS
-    BEGIN
-        DBMS_OUTPUT.PUT_LINE('BEWIJS M5');
-        DBMS_OUTPUT.PUT_LINE('1 - Random nummer terruggeeft binnen een nummerbereik');
-            DBMS_OUTPUT.PUT_LINE('give_random_number(1,10) --> ') || RANDOM_NUMBER_IN_RANGE(1, 10);
-        DBMS_OUTPUT.PUT_LINE('2 - Random datum binnen een datumbereik');
-        DBMS_OUTPUT.PUT_LINE('give_random_date(TO_DATE(''01-01-2000'', ''DD-MM-YYYY''), SYSDATE) --> ' ||
-                             RANDOM_DATE_IN_RANGE(TO_DATE('01-01-2000', 'DD-MM-YYYY'), SYSDATE));
-        DBMS_OUTPUT.PUT_LINE('3 - Random string uit een lijst');
-        DBMS_OUTPUT.PUT_LINE('random_movietitle -->' || RANDOM_MOVIE_TITLE);
-        DBMS_OUTPUT.PUT_LINE('4 - Starting Many-to-Many generation');
-        GENERATE_MANY_TO_MANY(20, 20, 50, 50, 40, 20);
-    END BEWIJS_MILESTONE_5;
-
-
-    PROCEDURE GENERATE_MANY_TO_MANY(P_AMOUNT_MOVIE IN NUMBER, P_AMOUNT_VIEWERS IN NUMBER, P_AMOUNT_TICKETS IN NUMBER,
-                                    P_AMOUNT_PERFORMANCES IN NUMBER, P_AMOUNT_HALLS IN NUMBER,
-                                    P_AMOUNT_THEATHERS IN NUMBER)
-        IS
-    BEGIN
-        GENERATE_MOVIES(P_AMOUNT_MOVIE);
-        GENERATE_2_LEVELS(P_AMOUNT_HALLS, P_AMOUNT_THEATHERS, P_AMOUNT_PERFORMANCES);
-        GENERATE_VIEWERS(P_AMOUNT_VIEWERS);
-        GENERATE_TICKETS(P_AMOUNT_TICKETS);
-    END GENERATE_MANY_TO_MANY;
-
-    PROCEDURE GENERATE_2_LEVELS(P_AMOUNT_HALLS IN NUMBER, P_AMOUNT_THEATHERS IN NUMBER, P_AMOUNT_PERFORMANCES IN NUMBER)
-        IS
-    BEGIN
-        GENERATE_THEATHERS(P_AMOUNT_THEATHERS);
-        GENERATE_HALLS(P_AMOUNT_HALLS);
-        GENERATE_PERFORMANCES(P_AMOUNT_PERFORMANCES);
-
-    END GENERATE_2_LEVELS;
 
     PROCEDURE GENERATE_MOVIES(P_AMOUNT IN NUMBER)
         IS
+        V_R_DATE   DATE;
+        V_R_NUMBER NUMBER;
+        V_R_TITLE  VARCHAR2(50);
     BEGIN
         FOR i IN 1..P_AMOUNT
             LOOP
+                V_R_DATE := RANDOM_DATE_IN_RANGE(TO_DATE('01-01-1900', 'DD-MM-YYYY'),
+                                                 TO_DATE('01-01-2022', 'DD-MM-YYYY'));
+                V_R_NUMBER := RANDOM_NUMBER_IN_RANGE(20, 200);
+                V_R_TITLE := RANDOM_MOVIE_TITLE;
                 INSERT INTO MOVIES (TITLE, RELEASE_DATE, GENRE, "TYPE", RUNTIME, PLOT, LANGUAGE)
-                VALUES (RANDOM_MOVIE_TITLE, RANDOM_DATE_IN_RANGE(TO_DATE('01-01-1900', 'DD-MM-YYYY'),
-                                                                 TO_DATE('01-01-2022', 'DD-MM-YYYY')),
+                VALUES (V_R_TITLE || i, V_R_DATE,
                         'Drama',
                         'MOVIE',
-                        RANDOM_NUMBER_IN_RANGE(1, 200),
+                        V_R_NUMBER,
                         'PLOT' || i,
                         'EN');
+                commit;
             END LOOP;
     END GENERATE_MOVIES;
 
@@ -212,18 +177,23 @@ CREATE
         IS
         TYPE type_locations IS TABLE OF LOCATIONS.LOCATION_ID%TYPE
             INDEX BY PLS_INTEGER;
-        t_locationid type_locations;
+        t_locationid    type_locations;
+        V_R_LOCATION_ID NUMBER;
+        V_R_DATE        DATE;
     BEGIN
         SELECT LOCATION_ID BULK COLLECT
         INTO t_locationid
         FROM LOCATIONS;
         FOR i IN 1..P_AMOUNT
             LOOP
+                V_R_LOCATION_ID := t_locationid(RANDOM_NUMBER_IN_RANGE(1, t_locationid.COUNT));
+                V_R_DATE := RANDOM_DATE_IN_RANGE(TO_DATE('01-01-1900', 'DD-MM-YYYY'),
+                                                 TO_DATE('01-01-2022', 'DD-MM-YYYY'));
                 INSERT INTO VIEWERS (FIRSTNAME, LASTNAME, BIRTHDATE, GENDER, EMAIL, LOCATION_ID)
-                VALUES ('firstname' || i, 'lastname' || i, RANDOM_DATE_IN_RANGE(TO_DATE('01-01-1900', 'DD-MM-YYYY'),
-                                                                                TO_DATE('01-01-2022', 'DD-MM-YYYY')),
+                VALUES ('firstname' || i, 'lastname' || i, V_R_DATE,
                         'M', 'firstname' || i || '@gmail.com',
-                        t_locationid(RANDOM_NUMBER_IN_RANGE(1, t_locationid.COUNT)));
+                        V_R_LOCATION_ID);
+                commit;
             END LOOP;
     END GENERATE_VIEWERS;
 
@@ -231,17 +201,24 @@ CREATE
         IS
         TYPE type_locations IS TABLE OF LOCATIONS.LOCATION_ID%TYPE
             INDEX BY PLS_INTEGER;
-        t_locationid type_locations;
+        t_locationid     type_locations;
+        V_R_LOCATION_ID  NUMBER;
+        V_R_NUMBER_PHONE NUMBER;
+        V_R_NUMBER_SHOP  NUMBER;
     BEGIN
         SELECT LOCATION_ID BULK COLLECT
         INTO t_locationid
         FROM LOCATIONS;
         FOR i IN 1..P_AMOUNT
             LOOP
+                V_R_LOCATION_ID := t_locationid(RANDOM_NUMBER_IN_RANGE(1, t_locationid.COUNT));
+                V_R_NUMBER_PHONE := RANDOM_NUMBER_IN_RANGE(10000000000, 99999999999);
+                V_R_NUMBER_SHOP := RANDOM_NUMBER_IN_RANGE(1, 1);
                 INSERT INTO THEATHERS (NAME, SHOP, PHONENUMBER, LOCATION_ID)
-                VALUES ('Theather' || i, RANDOM_NUMBER_IN_RANGE(0, 1),
-                        '+' || RANDOM_NUMBER_IN_RANGE(10000000000, 99999999999),
-                        t_locationid(RANDOM_NUMBER_IN_RANGE(1, t_locationid.COUNT)));
+                VALUES ('Theather' || i, V_R_NUMBER_SHOP,
+                        '+' || CAST(V_R_NUMBER_PHONE AS VARCHAR2(12)),
+                        V_R_LOCATION_ID);
+                commit;
             END LOOP;
     END GENERATE_THEATHERS;
 
@@ -250,7 +227,11 @@ CREATE
         IS
         TYPE type_theathers IS TABLE OF THEATHERS.THEATHER_ID%TYPE
             INDEX BY PLS_INTEGER;
-        t_theatherid type_theathers;
+        t_theatherid    type_theathers;
+        V_R_SEAT_AMOUNT NUMBER ;
+        V_R_FLOOR       NUMBER ;
+        V_R_HALLNUMBER  NUMBER ;
+        V_R_SCREENTYPE  VARCHAR2(10) ;
     BEGIN
         SELECT THEATHER_ID BULK COLLECT
         INTO t_theatherid
@@ -259,10 +240,15 @@ CREATE
             LOOP
                 FOR i IN 1..P_AMOUNT
                     LOOP
+                        V_R_SEAT_AMOUNT := RANDOM_NUMBER_IN_RANGE(1, 100);
+                        /* V_R_FLOOR := RANDOM_NUMBER_IN_RANGE(1, 4);
+                        V_R_HALLNUMBER := RANDOM_NUMBER_IN_RANGE(0, 50);*/
+                        V_R_SCREENTYPE := RANDOM_SCREENTYPE;
                         INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, HALLNUMBER, SCREENTYPE, THEATHER_ID)
-                        VALUES (RANDOM_NUMBER_IN_RANGE(0, 150), RANDOM_NUMBER_IN_RANGE(0, 4),
-                                RANDOM_NUMBER_IN_RANGE(0, 50),
-                                RANDOM_SCREENTYPE, t_theatherid(j));
+                        VALUES (V_R_SEAT_AMOUNT, j,
+                                i,
+                                V_R_SCREENTYPE, t_theatherid(j));
+                        commit;
                     END LOOP;
             END LOOP;
     END GENERATE_HALLS;
@@ -272,10 +258,13 @@ CREATE
         IS
         TYPE type_movies IS TABLE OF MOVIES.MOVIE_ID%TYPE
             INDEX BY PLS_INTEGER;
-        t_movieid type_movies;
+        t_movieid     type_movies;
         TYPE type_halls IS TABLE OF HALLS.HALL_ID%TYPE
             INDEX BY PLS_INTEGER;
-        t_hallid  type_halls;
+        t_hallid      type_halls;
+        V_R_MOVIEID   NUMBER ;
+        V_R_STARTTIME DATE ;
+        V_R_ENDTIME   DATE ;
     BEGIN
         SELECT MOVIE_ID BULK COLLECT
         INTO t_movieid
@@ -287,26 +276,62 @@ CREATE
             LOOP
                 FOR i IN 1..P_AMOUNT
                     LOOP
+                        V_R_MOVIEID := t_movieid(RANDOM_NUMBER_IN_RANGE(1, t_movieid.COUNT));
+                        V_R_STARTTIME := RANDOM_DATE_IN_RANGE(TO_DATE('01-01-1900 00:00', 'DD-MM-YYYY HH24:MI'),
+                                                              TO_DATE('01-01-2022 23:59', 'DD-MM-YYYY HH24:MI'));
+                        V_R_ENDTIME := V_R_STARTTIME + RANDOM_NUMBER_IN_RANGE(0, 200);
                         INSERT INTO PERFORMANCES (MOVIE_ID, HALL_ID, STARTTIME, ENDTIME)
-                        VALUES (t_movieid(RANDOM_NUMBER_IN_RANGE(1, t_movieid.COUNT)),
+                        VALUES (V_R_MOVIEID,
                                 t_hallid(j),
-                                RANDOM_DATE_IN_RANGE(TO_DATE('01-01-1900 00:00', 'DD-MM-YYYY HH:mis'),
-                                                     TO_DATE('01-01-2022 23:59', 'DD-MM-YYYY HH:mis')),
-                                STARTTIME + RANDOM_NUMBER_IN_RANGE(0, 200));
+                                V_R_STARTTIME,
+                                V_R_ENDTIME);
+                        commit;
                     END LOOP;
             END LOOP;
     END GENERATE_PERFORMANCES;
 
+    PROCEDURE VUL_LOCATIONS IS
+    BEGIN
+        -- Countries
+        PKG_MOVIES.ADD_COUNTRY('BE', 'Belgium');
+        PKG_MOVIES.ADD_COUNTRY('US', 'United States');
+        PKG_MOVIES.ADD_COUNTRY('FR', 'France');
+        PKG_MOVIES.ADD_COUNTRY('NL', 'Netherlands');
+        PKG_MOVIES.ADD_COUNTRY('ZA', 'South Africa');
+
+-- Zipcodes
+        PKG_MOVIES.ADD_ZIPCODE('Brussels', '1000', 'BE');
+        PKG_MOVIES.ADD_ZIPCODE('New York', '10002', 'US');
+        PKG_MOVIES.ADD_ZIPCODE('Paris', '75000', 'FR');
+        PKG_MOVIES.ADD_ZIPCODE('Amsterdam', '1015', 'NL');
+        PKG_MOVIES.ADD_ZIPCODE('Cape Town', '6665', 'ZA');
+
+-- Locations
+        PKG_MOVIES.ADD_LOCATION('Galerie de la Reine', 26, '1000', 'BE');
+        PKG_MOVIES.ADD_LOCATION('Brixtonlaan', 176, '1000', 'BE');
+        PKG_MOVIES.ADD_LOCATION('Aven Ackers', 227, '10002', 'US');
+        PKG_MOVIES.ADD_LOCATION('West 125th Street', 254, '10002', 'US');
+        PKG_MOVIES.ADD_LOCATION('Pl. du Châtelet', 2, '75000', 'FR');
+        PKG_MOVIES.ADD_LOCATION('Rue Bois des Fosses', 139, '75000', 'FR');
+        PKG_MOVIES.ADD_LOCATION('Kleine-Gartmanplantsoen', 15, '1015', 'NL');
+        PKG_MOVIES.ADD_LOCATION('Robert de Vriesstraat', 51, '1015', 'NL');
+        PKG_MOVIES.ADD_LOCATION('D.F. Malan St', 25, '6665', 'ZA');
+        PKG_MOVIES.ADD_LOCATION('Oost St', 1155, '6665', 'ZA');
+    END;
 
     PROCEDURE
         GENERATE_TICKETS(P_AMOUNT IN NUMBER)
         IS
         TYPE type_viewers IS TABLE OF VIEWERS.VIEWER_ID%TYPE
             INDEX BY PLS_INTEGER;
-        t_viewerid      type_viewers;
+        t_viewerid        type_viewers;
         TYPE type_performances IS TABLE OF PERFORMANCES.PERFORMANCE_ID%TYPE
             INDEX BY PLS_INTEGER;
-        t_performanceid type_performances;
+        t_performanceid   type_performances;
+        V_R_VIEWERID      NUMBER ;
+        V_R_PERFORMANCEID NUMBER ;
+        V_R_SEATNUMBER    NUMBER ;
+        V_R_PRICE         NUMBER ;
     BEGIN
         SELECT VIEWER_ID BULK COLLECT
         INTO t_viewerid
@@ -316,12 +341,74 @@ CREATE
         FROM PERFORMANCES;
         FOR i IN 1..P_AMOUNT
             LOOP
+                V_R_VIEWERID := t_viewerid(RANDOM_NUMBER_IN_RANGE(1, t_viewerid.COUNT));
+                V_R_PERFORMANCEID := t_performanceid(RANDOM_NUMBER_IN_RANGE(1, t_performanceid.COUNT));
+                V_R_SEATNUMBER := RANDOM_NUMBER_IN_RANGE(1, 100);
+                V_R_PRICE := RANDOM_NUMBER_IN_RANGE(1, 20);
                 INSERT INTO TICKETS
-                VALUES (t_viewerid(RANDOM_NUMBER_IN_RANGE(1, t_viewerid.COUNT)),
-                        t_performanceid(RANDOM_NUMBER_IN_RANGE(1, t_performanceid.COUNT)),
-                        RANDOM_NUMBER_IN_RANGE(1, 150), RANDOM_NUMBER_IN_RANGE(5, 20));
+                VALUES (V_R_VIEWERID, V_R_PERFORMANCEID,
+                        V_R_SEATNUMBER, V_R_PRICE);
+                commit;
             END LOOP;
     END GENERATE_TICKETS;
+
+    PROCEDURE GENERATE_2_LEVELS(P_AMOUNT_HALLS IN NUMBER, P_AMOUNT_THEATHERS IN NUMBER, P_AMOUNT_PERFORMANCES IN NUMBER)
+        IS
+    BEGIN
+        GENERATE_THEATHERS(P_AMOUNT_THEATHERS);
+        GENERATE_HALLS(P_AMOUNT_HALLS);
+        GENERATE_PERFORMANCES(P_AMOUNT_PERFORMANCES);
+
+    END GENERATE_2_LEVELS;
+
+
+    PROCEDURE GENERATE_MANY_TO_MANY(P_AMOUNT_MOVIE IN NUMBER, P_AMOUNT_VIEWERS IN NUMBER, P_AMOUNT_TICKETS IN NUMBER,
+                                    P_AMOUNT_PERFORMANCES IN NUMBER, P_AMOUNT_HALLS IN NUMBER,
+                                    P_AMOUNT_THEATHERS IN NUMBER)
+        IS
+        start_time_many pls_integer;
+        start_time_2levels pls_integer;
+        end_time_2levels pls_integer;
+        performances_generated pls_integer;
+        halls_generated pls_integer;
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE('4.1 - Generate_movies(20)');
+        GENERATE_MOVIES(P_AMOUNT_MOVIE);
+        VUL_LOCATIONS();
+        DBMS_OUTPUT.PUT_LINE('4.2 - Generate_viewers(20)');
+        DBMS_OUTPUT.PUT_LINE('4.3 - Generate_viewers(20)');
+        DBMS_OUTPUT.PUT_LINE('4.4 - Generate_tickets(50)');
+        DBMS_OUTPUT.PUT_LINE('Start generating 2 Levels (generate_2_levels(40,50)');
+        start_time_2levels  := dbms_utility.get_time;
+        GENERATE_2_LEVELS(P_AMOUNT_HALLS, P_AMOUNT_THEATHERS, P_AMOUNT_PERFORMANCES);
+        end_time_2levels  := dbms_utility.get_time;
+        start_time_many := dbms_utility.get_time;
+        GENERATE_VIEWERS(P_AMOUNT_VIEWERS);
+        GENERATE_TICKETS(P_AMOUNT_TICKETS);
+        SELECT COUNT(*) INTO performances_generated FROM PERFORMANCES ;
+        SELECT COUNT(*) INTO halls_generated FROM HALLS ;
+        DBMS_OUTPUT.PUT_LINE('Halls generated: ' || halls_generated);
+        DBMS_OUTPUT.PUT_LINE('Performances generated: ' || performances_generated);
+        DBMS_OUTPUT.PUT_LINE('4.5 - Generate_viewers(20)');
+        DBMS_OUTPUT.PUT_LINE('The Duration of the many to many generation is: ' ||
+                             (dbms_utility.get_time - start_time_many)/100 || ' seconds');
+        DBMS_OUTPUT.PUT_LINE('The Duration of the 2 levels generation is: ' ||(end_time_2levels - start_time_2levels)/100 || ' seconds');
+    END GENERATE_MANY_TO_MANY;
+
+    PROCEDURE BEWIJS_MILESTONE_5
+        IS
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE('BEWIJS M5');
+        DBMS_OUTPUT.PUT_LINE('1 - Random nummer terruggeeft binnen een nummerbereik');
+        DBMS_OUTPUT.PUT_LINE('give_random_number(1,10) --> ' || ROUND(RANDOM_NUMBER_IN_RANGE(1, 10),0));
+        DBMS_OUTPUT.PUT_LINE('2 - Random datum binnen een datumbereik');
+        DBMS_OUTPUT.PUT_LINE('give_random_date(TO_DATE(''01-01-2000'', ''DD-MM-YYYY''), SYSDATE) --> ' ||
+                             RANDOM_DATE_IN_RANGE(TO_DATE('01-01-2000', 'DD-MM-YYYY'), SYSDATE));
+        DBMS_OUTPUT.PUT_LINE('3 - Random string uit een lijst');
+        DBMS_OUTPUT.PUT_LINE('random_movietitle --> ' || RANDOM_MOVIE_TITLE());
+        DBMS_OUTPUT.PUT_LINE('4 - Starting Many-to-Many generation (generate_many_to_many(20, 20, 50, 20))');
+        GENERATE_MANY_TO_MANY(20, 20, 50, 50, 40, 20);
+    END BEWIJS_MILESTONE_5;
 
     -- Tip: gebruik EXECUTE IMMEDIATE.
 -- Tip: gebruik deze procedure om de tabellen te legen.
