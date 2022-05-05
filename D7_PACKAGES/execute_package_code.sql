@@ -1,5 +1,10 @@
 -- In dit bestand voor je alle code uit die je package aanroept.
 -- een oproep van de package zit tussen een BEGIN en een END blok
+BEGIN
+    PKG_MOVIES.PRINT_OUT(3,2,5);
+    PKG_MOVIES.PRINT_OUT(3,-2,3);
+end;
+
 
 BEGIN
     PKG_MOVIES.EMPTY_TABLES();
