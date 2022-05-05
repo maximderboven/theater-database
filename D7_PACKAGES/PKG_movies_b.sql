@@ -339,16 +339,19 @@ CREATE
         SELECT PERFORMANCE_ID BULK COLLECT
         INTO t_performanceid
         FROM PERFORMANCES;
-        FOR i IN 1..P_AMOUNT
+        for j in 1..t_performanceid.COUNT
             LOOP
-                V_R_VIEWERID := t_viewerid(RANDOM_NUMBER_IN_RANGE(1, t_viewerid.COUNT));
-                V_R_PERFORMANCEID := t_performanceid(RANDOM_NUMBER_IN_RANGE(1, t_performanceid.COUNT));
-                V_R_SEATNUMBER := RANDOM_NUMBER_IN_RANGE(1, 100);
-                V_R_PRICE := ROUND(RANDOM_NUMBER_IN_RANGE(1, 20),2);
-                INSERT INTO TICKETS
-                VALUES (V_R_VIEWERID, V_R_PERFORMANCEID,
-                        V_R_SEATNUMBER, V_R_PRICE);
-                commit;
+                FOR i IN 1..P_AMOUNT
+                    LOOP
+                        V_R_VIEWERID := t_viewerid(RANDOM_NUMBER_IN_RANGE(1, t_viewerid.COUNT));
+                        V_R_PERFORMANCEID := j;
+                        V_R_SEATNUMBER := i;
+                        V_R_PRICE := ROUND(RANDOM_NUMBER_IN_RANGE(0, 25), 2);
+                        INSERT INTO TICKETS
+                        VALUES (V_R_VIEWERID, V_R_PERFORMANCEID,
+                                V_R_SEATNUMBER, V_R_PRICE);
+                        commit;
+                    END LOOP;
             END LOOP;
     END GENERATE_TICKETS;
 
@@ -366,11 +369,11 @@ CREATE
                                     P_AMOUNT_PERFORMANCES IN NUMBER, P_AMOUNT_HALLS IN NUMBER,
                                     P_AMOUNT_THEATHERS IN NUMBER)
         IS
-        start_time_many pls_integer;
-        start_time_2levels pls_integer;
-        end_time_2levels pls_integer;
+        start_time_many        pls_integer;
+        start_time_2levels     pls_integer;
+        end_time_2levels       pls_integer;
         performances_generated pls_integer;
-        halls_generated pls_integer;
+        halls_generated        pls_integer;
     BEGIN
         DBMS_OUTPUT.PUT_LINE('4.1 - Generate_movies(20)');
         GENERATE_MOVIES(P_AMOUNT_MOVIE);
@@ -379,20 +382,21 @@ CREATE
         DBMS_OUTPUT.PUT_LINE('4.3 - Generate_viewers(20)');
         DBMS_OUTPUT.PUT_LINE('4.4 - Generate_tickets(50)');
         DBMS_OUTPUT.PUT_LINE('Start generating 2 Levels (generate_2_levels(40,50)');
-        start_time_2levels  := dbms_utility.get_time;
+        start_time_2levels := dbms_utility.get_time;
         GENERATE_2_LEVELS(P_AMOUNT_HALLS, P_AMOUNT_THEATHERS, P_AMOUNT_PERFORMANCES);
-        end_time_2levels  := dbms_utility.get_time;
+        end_time_2levels := dbms_utility.get_time;
         start_time_many := dbms_utility.get_time;
         GENERATE_VIEWERS(P_AMOUNT_VIEWERS);
         GENERATE_TICKETS(P_AMOUNT_TICKETS);
-        SELECT COUNT(*) INTO performances_generated FROM PERFORMANCES ;
-        SELECT COUNT(*) INTO halls_generated FROM HALLS ;
+        SELECT COUNT(*) INTO performances_generated FROM PERFORMANCES;
+        SELECT COUNT(*) INTO halls_generated FROM HALLS;
         DBMS_OUTPUT.PUT_LINE('Halls generated: ' || halls_generated);
         DBMS_OUTPUT.PUT_LINE('Performances generated: ' || performances_generated);
         DBMS_OUTPUT.PUT_LINE('4.5 - Generate_viewers(20)');
         DBMS_OUTPUT.PUT_LINE('The Duration of the many to many generation is: ' ||
-                             (dbms_utility.get_time - start_time_many)/100 || ' seconds');
-        DBMS_OUTPUT.PUT_LINE('The Duration of the 2 levels generation is: ' ||(end_time_2levels - start_time_2levels)/100 || ' seconds');
+                             (dbms_utility.get_time - start_time_many) / 100 || ' seconds');
+        DBMS_OUTPUT.PUT_LINE('The Duration of the 2 levels generation is: ' ||
+                             (end_time_2levels - start_time_2levels) / 100 || ' seconds');
     END GENERATE_MANY_TO_MANY;
 
     PROCEDURE BEWIJS_MILESTONE_5
@@ -400,82 +404,120 @@ CREATE
     BEGIN
         DBMS_OUTPUT.PUT_LINE('BEWIJS M5');
         DBMS_OUTPUT.PUT_LINE('1 - Random nummer terruggeeft binnen een nummerbereik');
-        DBMS_OUTPUT.PUT_LINE('give_random_number(1,10) --> ' || ROUND(RANDOM_NUMBER_IN_RANGE(1, 10),0));
+        DBMS_OUTPUT.PUT_LINE('give_random_number(1,10) --> ' || ROUND(RANDOM_NUMBER_IN_RANGE(1, 10), 0));
         DBMS_OUTPUT.PUT_LINE('2 - Random datum binnen een datumbereik');
         DBMS_OUTPUT.PUT_LINE('give_random_date(TO_DATE(''01-01-2000'', ''DD-MM-YYYY''), SYSDATE) --> ' ||
                              RANDOM_DATE_IN_RANGE(TO_DATE('01-01-2000', 'DD-MM-YYYY'), SYSDATE));
         DBMS_OUTPUT.PUT_LINE('3 - Random string uit een lijst');
         DBMS_OUTPUT.PUT_LINE('random_movietitle --> ' || RANDOM_MOVIE_TITLE());
         DBMS_OUTPUT.PUT_LINE('4 - Starting Many-to-Many generation (generate_many_to_many(20, 20, 50, 20))');
-        GENERATE_MANY_TO_MANY(20, 20, 50, 50, 40, 20);
+        GENERATE_MANY_TO_MANY(20, 20, 5, 5, 40, 20);
     END BEWIJS_MILESTONE_5;
 
 
+    PROCEDURE PRINT_OUT(P_AMOUNT_MOVIES IN NUMBER, P_AMOUNT_PERFORMANCES IN NUMBER, P_AMOUNT_TICKETS IN NUMBER)
+        IS
+        CURSOR cur_movies IS
+            SELECT MOVIE_ID, TITLE, RELEASE_DATE, GENRE, "TYPE", RUNTIME
+            FROM MOVIES;
+        R_MOVIES       cur_movies%ROWTYPE;
+        CURSOR cur_performances(PM R_MOVIES.MOVIE_ID%TYPE) IS
+            SELECT PERFORMANCE_ID, MOVIE_ID, HALL_ID, STARTTIME
+            FROM PERFORMANCES
+            WHERE MOVIE_ID = PM;
+        R_PERFORMANCES cur_performances%ROWTYPE;
+        CURSOR cur_tickets(PP R_PERFORMANCES.PERFORMANCE_ID%TYPE) IS
+            SELECT PERFORMANCE_ID, SEATNUMBER, PRICE
+            FROM TICKETS
+            WHERE PERFORMANCE_ID = PP;
+        R_TICKETS      cur_tickets%ROWTYPE;
+        E_NEGATIVE EXCEPTION;
+        CURSOR cur_avg_ticket_per_performance_per_movie(MID R_MOVIES.MOVIE_ID%TYPE) IS SELECT AVG(PRICE)
+                                                                                       FROM TICKETS
+                                                                                                JOIN PERFORMANCES P on TICKETS.PERFORMANCE_ID = P.PERFORMANCE_ID
+                                                                                       WHERE P.MOVIE_ID = MID
+                                                                                       GROUP BY P.MOVIE_ID;
+        AVG_TICKET_PER_PERFORMANCE_PER_MOVIE NUMBER;
+        CURSOR cur_avg_ticket_per_performance(PID R_PERFORMANCES.PERFORMANCE_ID%TYPE) IS SELECT AVG(PRICE)
+                                                                                         FROM TICKETS
+                                                                                         WHERE PERFORMANCE_ID = PID
+                                                                                         GROUP BY PERFORMANCE_ID;
+        AVG_TICKET_PER_PERFORMANCE           NUMBER;
 
+    BEGIN
+        IF P_AMOUNT_MOVIES < 0 THEN
+            RAISE E_NEGATIVE;
+        ELSIF P_AMOUNT_PERFORMANCES < 0 THEN
+            RAISE E_NEGATIVE;
+        ELSIF P_AMOUNT_TICKETS < 0 THEN
+            RAISE E_NEGATIVE;
+        ELSE
+            IF P_AMOUNT_MOVIES > 0 THEN
+                DBMS_OUTPUT.PUT_LINE('OVERZICHT VAN ALLE TICKETS VERKOCHT PER FILM:');
+                DBMS_OUTPUT.PUT_LINE('==================================================');
+                OPEN cur_movies;
+                FOR i IN 1..P_AMOUNT_MOVIES
+                    LOOP
+                        DBMS_OUTPUT.PUT_LINE(RPAD('Movie ID', 8) || '|' || LPAD('Title', 20) || '|' ||
+                                             LPAD('Release date', 15) || '|' || LPAD('Genre', 10) || '|' ||
+                                             LPAD('Type', 10) || '|' || LPAD('Runtime', 10) || '|' ||
+                                             LPAD('AVG Ticket price', 20));
+                        DBMS_OUTPUT.put_line('------------------------------------------------------------------------------------------------------------------------------------------------------------------');
+                        FETCH cur_movies INTO R_MOVIES;
+                        EXIT WHEN cur_movies%NOTFOUND;
+                        OPEN cur_avg_ticket_per_performance_per_movie(R_MOVIES.MOVIE_ID);
+                        FETCH cur_avg_ticket_per_performance_per_movie INTO AVG_TICKET_PER_PERFORMANCE_PER_MOVIE;
+                        DBMS_OUTPUT.PUT_LINE(RPAD(R_MOVIES.MOVIE_ID, 8) || '|' || LPAD(R_MOVIES.TITLE, 20) || '|' ||
+                                             LPAD(R_MOVIES.RELEASE_DATE, 15) || '|' || LPAD(R_MOVIES.GENRE, 10) ||
+                                             '|' || LPAD(R_MOVIES.TYPE, 10) || '|' || LPAD(R_MOVIES.RUNTIME, 10) ||
+                                             '|' || LPAD(ROUND(AVG_TICKET_PER_PERFORMANCE_PER_MOVIE,2), 20));
+                        IF P_AMOUNT_PERFORMANCES > 0 THEN
+                            OPEN cur_performances(R_MOVIES.MOVIE_ID);
 
-
-PROCEDURE PRINT_OUT(P_AMOUNT_MOVIES IN NUMBER, P_AMOUNT_PERFORMANCES IN NUMBER, P_AMOUNT_TICKETS IN NUMBER)
-    IS
-    CURSOR cur_movies IS
-        SELECT MOVIE_ID, TITLE, RELEASE_DATE, GENRE, "TYPE", RUNTIME FROM MOVIES;
-    R_MOVIES     cur_movies%ROWTYPE;
-    CURSOR cur_performances IS
-        SELECT PERFORMANCE_ID, HALL_ID, STARTTIME FROM PERFORMANCES;
-    R_PERFORMANCES          cur_performances%ROWTYPE;
-    CURSOR cur_tickets IS
-        SELECT SEATNUMBER, PRICE FROM TICKETS;
-    R_TICKETS      cur_tickets%ROWTYPE;
-    E_NEGATIVE   EXCEPTION;
-BEGIN
-    IF P_AMOUNT_MOVIES < 0 THEN
-    RAISE E_NEGATIVE;
-    ELSIF P_AMOUNT_PERFORMANCES < 0 THEN
-        RAISE E_NEGATIVE;
-    ELSIF P_AMOUNT_TICKETS < 0 THEN
-        RAISE E_NEGATIVE;
-    ELSE
-        IF P_AMOUNT_MOVIES > 0 THEN
-            DBMS_OUTPUT.PUT_LINE('OVERZICHT VAN ALLE TICKETS VERKOCHT PER FILM:');
-            DBMS_OUTPUT.PUT_LINE('==================================================');
-            OPEN cur_movies;
-            FOR i IN 1..P_AMOUNT_MOVIES
-                LOOP
-                    DBMS_OUTPUT.PUT_LINE(RPAD('Movie ID',8) || '|' || LPAD('Title', 20) || '|' || LPAD('Release date', 11) || '|' || LPAD('Genre', 16) || '|' || LPAD('Type',5) || '|' || LPAD('Runtime',5) || '|' || LPAD('AVG Ticket price',10));
-                    DBMS_OUTPUT.put_line('------------------------------------------------------------------------------------------------------------------------------------------------------------------');
-                    FETCH cur_movies INTO R_MOVIES;
-                    DBMS_OUTPUT.PUT_LINE(RPAD(R_MOVIES.MOVIE_ID,8) || '|' || LPAD(R_MOVIES.TITLE, 20) || '|' || LPAD(R_MOVIES.RELEASE_DATE, 11) || '|' || LPAD(R_MOVIES.GENRE, 16) || '|' || LPAD(R_MOVIES.TYPE,5) || '|' || LPAD(R_MOVIES.RUNTIME,5) || '|' || LPAD('AVG Ticket price',10));
-                    IF P_AMOUNT_PERFORMANCES > 0 THEN
-                        OPEN cur_performances;
-                        FOR j IN 1..P_AMOUNT_PERFORMANCES
-                            LOOP
-                                DBMS_OUTPUT.PUT_LINE(RPAD('Performance ID',8) || '|' || LPAD('Hall ID', 20) || '|' || LPAD('Start time', 11) || '|' || LPAD('AVG Ticket price',10));
-                                DBMS_OUTPUT.PUT_LINE('  ------------------------------------------------------------');
-                                FETCH cur_performances INTO R_PERFORMANCES;
-                                DBMS_OUTPUT.PUT_LINE(RPAD(R_PERFORMANCES.PERFORMANCE_ID,8) || '|' || LPAD(R_PERFORMANCES.HALL_ID, 20) || '|' || LPAD(R_PERFORMANCES.STARTTIME, 11) || '|' || LPAD('AVG Ticket price',10));
-                                IF P_AMOUNT_TICKETS > 0 THEN
-                                    OPEN cur_tickets;
-                                    FOR k IN 1..P_AMOUNT_TICKETS
-                                        LOOP
-                                            DBMS_OUTPUT.PUT_LINE(RPAD('SEATNUMBER',8) || '|' || LPAD('PRICE', 20));
-                                            DBMS_OUTPUT.PUT_LINE('  ------------------------------------------------------------');
-                                            FETCH cur_tickets INTO R_TICKETS;
-                                            DBMS_OUTPUT.PUT_LINE(RPAD(R_TICKETS.SEATNUMBER,8) || '|' || LPAD(R_TICKETS.PRICE, 20));
-                                        END LOOP;
-                                    CLOSE cur_tickets;
-                                END IF;
-                            END LOOP;
-                        CLOSE cur_performances;
-                    END IF;
-                END LOOP;
-            CLOSE cur_movies;
+                            FOR j IN 1..P_AMOUNT_PERFORMANCES
+                                LOOP
+                                    DBMS_OUTPUT.PUT_LINE(RPAD('PERFORMANCE ID', 15) || '|' || LPAD('Hall ID', 10) ||
+                                                         '|' ||
+                                                         LPAD('Start time', 20) || '|' || LPAD('AVG Ticket price', 20));
+                                    DBMS_OUTPUT.PUT_LINE('  ------------------------------------------------------------');
+                                    FETCH cur_performances INTO R_PERFORMANCES;
+                                    EXIT WHEN cur_performances%NOTFOUND;
+                                    OPEN cur_avg_ticket_per_performance(R_PERFORMANCES.PERFORMANCE_ID);
+                                    FETCH cur_avg_ticket_per_performance INTO AVG_TICKET_PER_PERFORMANCE;
+                                    DBMS_OUTPUT.PUT_LINE(RPAD(R_PERFORMANCES.PERFORMANCE_ID, 15) || '|' ||
+                                                         LPAD(R_PERFORMANCES.HALL_ID, 10) || '|' ||
+                                                         LPAD(TO_CHAR(R_PERFORMANCES.STARTTIME), 20) || '|' ||
+                                                         LPAD(ROUND(AVG_TICKET_PER_PERFORMANCE,2), 20));
+                                    IF P_AMOUNT_TICKETS > 0 THEN
+                                        OPEN cur_tickets(R_PERFORMANCES.PERFORMANCE_ID);
+                                        DBMS_OUTPUT.PUT_LINE(RPAD('SEATNUMBER', 10) || '|' || LPAD('PRICE', 6) || '|' ||
+                                                             LPAD('PERFORMANCE_ID', 15));
+                                        DBMS_OUTPUT.PUT_LINE('  ------------------------------------------------------------');
+                                        FOR k IN 1..P_AMOUNT_TICKETS
+                                            LOOP
+                                                FETCH cur_tickets INTO R_TICKETS;
+                                                EXIT WHEN cur_tickets%NOTFOUND;
+                                                DBMS_OUTPUT.PUT_LINE(RPAD(R_TICKETS.SEATNUMBER, 10) || '|' ||
+                                                                     LPAD(R_TICKETS.PRICE, 6) || '|' ||
+                                                                     LPAD(R_TICKETS.PERFORMANCE_ID, 15));
+                                            END LOOP;
+                                        CLOSE cur_tickets;
+                                    END IF;
+                                    CLOSE cur_avg_ticket_per_performance;
+                                END LOOP;
+                            CLOSE cur_performances;
+                        END IF;
+                        CLOSE cur_avg_ticket_per_performance_per_movie;
+                    END LOOP;
+                CLOSE cur_movies;
+            END IF;
         END IF;
-    END IF;
-EXCEPTION
-   WHEN E_NEGATIVE THEN  -- does not handle RAISEd exception
-      dbms_output.put_line('parameter must be greater than 0, one can not print a negative number of rows');
-WHEN OTHERS THEN
-     dbms_output.put_line('Deze exception wordt niet herkent.');
-END PRINT_OUT;
+    EXCEPTION
+        WHEN E_NEGATIVE THEN -- does not handle RAISEd exception
+            dbms_output.put_line('parameter must be greater than 0, one can not print a negative number of rows');
+        /*WHEN OTHERS THEN
+            dbms_output.put_line('Deze exception wordt niet herkent.');*/
+    END PRINT_OUT;
 
     -- Tip: gebruik EXECUTE IMMEDIATE.
 -- Tip: gebruik deze procedure om de tabellen te legen.
