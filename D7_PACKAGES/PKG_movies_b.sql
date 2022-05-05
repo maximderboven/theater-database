@@ -435,24 +435,24 @@ BEGIN
                 LOOP
                     DBMS_OUTPUT.PUT_LINE(RPAD('Movie ID',8) || '|' || LPAD('Title', 20) || '|' || LPAD('Release date', 11) || '|' || LPAD('Genre', 16) || '|' || LPAD('Type',5) || '|' || LPAD('Runtime',5) || '|' || LPAD('AVG Ticket price',10));
                     DBMS_OUTPUT.put_line('------------------------------------------------------------------------------------------------------------------------------------------------------------------');
-                    SELECT MOVIE_ID, TITLE, RELEASE_DATE, GENRE, "TYPE", RUNTIME  INTO R_MOVIES
-                    FROM ( SELECT MOVIE_ID, TITLE, RELEASE_DATE, GENRE, "TYPE", RUNTIME FROM MOVIES M WHERE rownum <= P_AMOUNT_MOVIES );
-                    DBMS_OUTPUT.PUT_LINE(RPAD(R_MOVIES.MOVIE_ID,8) || '|' || LPAD(R_MOVIES.TITLE, 20) || '|' || LPAD(R_MOVIES.RELEASE_DATE, 11) || '|' || LPAD(R_MOVIES.GENRE, 16) || '|' || LPAD(R_MOVIES.TYPE,5) || '|' || LPAD(R_MOVIES.RUNTIME,5), '|' || LPAD('AVG Ticket price',10));
+                    SELECT * INTO R_MOVIES
+                    FROM ( SELECT M.* FROM MOVIES M where rownum=i );
+                    DBMS_OUTPUT.PUT_LINE(RPAD(R_MOVIES.MOVIE_ID,8) || '|' || LPAD(R_MOVIES.TITLE, 20) || '|' || LPAD(R_MOVIES.RELEASE_DATE, 11) || '|' || LPAD(R_MOVIES.GENRE, 16) || '|' || LPAD(R_MOVIES.TYPE,5) || '|' || LPAD(R_MOVIES.RUNTIME,5) || '|' || LPAD('AVG Ticket price',10));
                     IF P_AMOUNT_PERFORMANCES > 0 THEN
                         FOR j IN 1..P_AMOUNT_PERFORMANCES
                             LOOP
                                 DBMS_OUTPUT.PUT_LINE(RPAD('Performance ID',8) || '|' || LPAD('Hall ID', 20) || '|' || LPAD('Start time', 11) || '|' || LPAD('AVG Ticket price',10));
                                 DBMS_OUTPUT.PUT_LINE('  ------------------------------------------------------------');
-                                SELECT PERFORMANCE_ID INTO R_PERFORMANCES
-                                FROM ( SELECT * FROM PERFORMANCES P WHERE rownum <= P_AMOUNT_PERFORMANCES );
+                                SELECT * INTO R_PERFORMANCES
+                                FROM ( SELECT P.* FROM PERFORMANCES P where rownum=i );
                                 DBMS_OUTPUT.PUT_LINE(RPAD(R_PERFORMANCES.PERFORMANCE_ID,8) || '|' || LPAD(R_PERFORMANCES.HALL_ID, 20) || '|' || LPAD(R_PERFORMANCES.STARTTIME, 11) || '|' || LPAD('AVG Ticket price',10));
                                 IF P_AMOUNT_TICKETS > 0 THEN
                                     FOR k IN 1..P_AMOUNT_TICKETS
                                         LOOP
                                             DBMS_OUTPUT.PUT_LINE(RPAD('SEATNUMBER',8) || '|' || LPAD('PRICE', 20));
                                             DBMS_OUTPUT.PUT_LINE('  ------------------------------------------------------------');
-                                            SELECT SEATNUMBER, PRICE INTO R_TICKETS
-                                            FROM ( SELECT * FROM TICKETS T WHERE rownum <= P_AMOUNT_TICKETS );
+                                            SELECT * INTO R_TICKETS
+                                            FROM ( SELECT T.* FROM TICKETS T where rownum=i );
                                             DBMS_OUTPUT.PUT_LINE(RPAD(R_TICKETS.SEATNUMBER,8) || '|' || LPAD(R_TICKETS.PRICE, 20));
                                         END LOOP;
                                 END IF;
