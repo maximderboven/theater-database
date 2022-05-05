@@ -416,9 +416,15 @@ CREATE
 
 PROCEDURE PRINT_OUT(P_AMOUNT_MOVIES IN NUMBER, P_AMOUNT_PERFORMANCES IN NUMBER, P_AMOUNT_TICKETS IN NUMBER)
     IS
-    R_MOVIES     MOVIES%ROWTYPE;
-    R_PERFORMANCES          PERFORMANCES%ROWTYPE;
-    R_TICKETS      TICKETS%ROWTYPE;
+    CURSOR cur_movies IS
+        SELECT MOVIE_ID, TITLE, RELEASE_DATE, GENRE, "TYPE", RUNTIME FROM MOVIES;
+    R_MOVIES     cur_movies%ROWTYPE;
+    CURSOR cur_performances IS
+        SELECT PERFORMANCE_ID, HALL_ID, STARTTIME FROM PERFORMANCES;
+    R_PERFORMANCES          cur_performances%ROWTYPE;
+    CURSOR cur_tickets IS
+        SELECT SEATNUMBER, PRICE FROM TICKETS;
+    R_TICKETS      cur_tickets%ROWTYPE;
     E_NEGATIVE   EXCEPTION;
 BEGIN
     IF P_AMOUNT_MOVIES < 0 THEN
@@ -431,34 +437,37 @@ BEGIN
         IF P_AMOUNT_MOVIES > 0 THEN
             DBMS_OUTPUT.PUT_LINE('OVERZICHT VAN ALLE TICKETS VERKOCHT PER FILM:');
             DBMS_OUTPUT.PUT_LINE('==================================================');
+            OPEN cur_movies;
             FOR i IN 1..P_AMOUNT_MOVIES
                 LOOP
                     DBMS_OUTPUT.PUT_LINE(RPAD('Movie ID',8) || '|' || LPAD('Title', 20) || '|' || LPAD('Release date', 11) || '|' || LPAD('Genre', 16) || '|' || LPAD('Type',5) || '|' || LPAD('Runtime',5) || '|' || LPAD('AVG Ticket price',10));
                     DBMS_OUTPUT.put_line('------------------------------------------------------------------------------------------------------------------------------------------------------------------');
-                    SELECT * INTO R_MOVIES
-                    FROM ( SELECT M.* FROM MOVIES M where rownum=i );
+                    FETCH cur_movies INTO R_MOVIES;
                     DBMS_OUTPUT.PUT_LINE(RPAD(R_MOVIES.MOVIE_ID,8) || '|' || LPAD(R_MOVIES.TITLE, 20) || '|' || LPAD(R_MOVIES.RELEASE_DATE, 11) || '|' || LPAD(R_MOVIES.GENRE, 16) || '|' || LPAD(R_MOVIES.TYPE,5) || '|' || LPAD(R_MOVIES.RUNTIME,5) || '|' || LPAD('AVG Ticket price',10));
                     IF P_AMOUNT_PERFORMANCES > 0 THEN
+                        OPEN cur_performances;
                         FOR j IN 1..P_AMOUNT_PERFORMANCES
                             LOOP
                                 DBMS_OUTPUT.PUT_LINE(RPAD('Performance ID',8) || '|' || LPAD('Hall ID', 20) || '|' || LPAD('Start time', 11) || '|' || LPAD('AVG Ticket price',10));
                                 DBMS_OUTPUT.PUT_LINE('  ------------------------------------------------------------');
-                                SELECT * INTO R_PERFORMANCES
-                                FROM ( SELECT P.* FROM PERFORMANCES P where rownum=i );
+                                FETCH cur_performances INTO R_PERFORMANCES;
                                 DBMS_OUTPUT.PUT_LINE(RPAD(R_PERFORMANCES.PERFORMANCE_ID,8) || '|' || LPAD(R_PERFORMANCES.HALL_ID, 20) || '|' || LPAD(R_PERFORMANCES.STARTTIME, 11) || '|' || LPAD('AVG Ticket price',10));
                                 IF P_AMOUNT_TICKETS > 0 THEN
+                                    OPEN cur_tickets;
                                     FOR k IN 1..P_AMOUNT_TICKETS
                                         LOOP
                                             DBMS_OUTPUT.PUT_LINE(RPAD('SEATNUMBER',8) || '|' || LPAD('PRICE', 20));
                                             DBMS_OUTPUT.PUT_LINE('  ------------------------------------------------------------');
-                                            SELECT * INTO R_TICKETS
-                                            FROM ( SELECT T.* FROM TICKETS T where rownum=i );
+                                            FETCH cur_tickets INTO R_TICKETS;
                                             DBMS_OUTPUT.PUT_LINE(RPAD(R_TICKETS.SEATNUMBER,8) || '|' || LPAD(R_TICKETS.PRICE, 20));
                                         END LOOP;
+                                    CLOSE cur_tickets;
                                 END IF;
                             END LOOP;
+                        CLOSE cur_performances;
                     END IF;
                 END LOOP;
+            CLOSE cur_movies;
         END IF;
     END IF;
 EXCEPTION
