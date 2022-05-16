@@ -1,5 +1,8 @@
 -- In dit bestand zet je je package body. Hier zit al je code van je publieke functies, alsook private hulpfuncties.
 CREATE OR REPLACE PACKAGE BODY PKG_movies IS
+    TYPE type_theather_bulk IS TABLE OF THEATHERS%ROWTYPE  INDEX BY PLS_INTEGER;
+    TYPE type_halls_bulk IS TABLE OF HALLS%ROWTYPE  INDEX BY PLS_INTEGER;
+    TYPE type_performances_bulk IS TABLE OF PERFORMANCES%ROWTYPE  INDEX BY PLS_INTEGER;
     -------------------------
     -- PRIVATE FUNCTIONS
     -------------------------
@@ -470,74 +473,24 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
     END ADD_COUNTRY;
 
     -- DDL Generate BULK Random Rows into DB
-    PROCEDURE GENERATE_MOVIES_BULK(P_AMOUNT IN NUMBER)
-        IS
-        V_R_DATE   DATE;
-        V_R_NUMBER NUMBER;
-        V_R_TITLE  VARCHAR2(50);
-    BEGIN
-        FOR i IN 1..P_AMOUNT
-            LOOP
-                V_R_DATE := RANDOM_DATE_IN_RANGE(TO_DATE('01-01-1900', 'DD-MM-YYYY'),
-                                                 TO_DATE('01-01-2022', 'DD-MM-YYYY'));
-                V_R_NUMBER := RANDOM_NUMBER_IN_RANGE(20, 200);
-                V_R_TITLE := RANDOM_MOVIE_TITLE;
-                INSERT INTO MOVIES (TITLE, RELEASE_DATE, GENRE, "TYPE", RUNTIME, PLOT, LANGUAGE)
-                VALUES (V_R_TITLE || i, V_R_DATE,
-                        'Drama',
-                        'MOVIE',
-                        V_R_NUMBER,
-                        'PLOT' || i,
-                        'EN');
-                commit;
-            END LOOP;
-    END GENERATE_MOVIES_BULK;
-    PROCEDURE GENERATE_VIEWERS_BULK(P_AMOUNT IN NUMBER)
-        IS
-        TYPE type_locations IS TABLE OF LOCATIONS.LOCATION_ID%TYPE
-            INDEX BY PLS_INTEGER;
-        t_locationid    type_locations;
-        V_R_LOCATION_ID NUMBER;
-        V_R_DATE        DATE;
-    BEGIN
-        SELECT LOCATION_ID BULK COLLECT
-        INTO t_locationid
-        FROM LOCATIONS;
-        FOR i IN 1..P_AMOUNT
-            LOOP
-                V_R_LOCATION_ID := t_locationid(RANDOM_NUMBER_IN_RANGE(1, t_locationid.COUNT));
-                V_R_DATE := RANDOM_DATE_IN_RANGE(TO_DATE('01-01-1900', 'DD-MM-YYYY'),
-                                                 TO_DATE('01-01-2022', 'DD-MM-YYYY'));
-                INSERT INTO VIEWERS (FIRSTNAME, LASTNAME, BIRTHDATE, GENDER, EMAIL, LOCATION_ID)
-                VALUES ('firstname' || i, 'lastname' || i, V_R_DATE,
-                        'M', 'firstname' || i || '@gmail.com',
-                        V_R_LOCATION_ID);
-                commit;
-            END LOOP;
-    END GENERATE_VIEWERS_BULK;
     PROCEDURE GENERATE_THEATHERS_BULK(P_AMOUNT IN NUMBER)
         IS
         TYPE type_locations IS TABLE OF LOCATIONS.LOCATION_ID%TYPE
             INDEX BY PLS_INTEGER;
         t_locationid     type_locations;
-        V_R_LOCATION_ID  NUMBER;
-        V_R_NUMBER_PHONE NUMBER;
-        V_R_NUMBER_SHOP  NUMBER;
+        t_theather_bulk  type_theather_bulk;
     BEGIN
         SELECT LOCATION_ID BULK COLLECT
         INTO t_locationid
         FROM LOCATIONS;
         FOR i IN 1..P_AMOUNT
             LOOP
-                V_R_LOCATION_ID := t_locationid(RANDOM_NUMBER_IN_RANGE(1, t_locationid.COUNT));
-                V_R_NUMBER_PHONE := RANDOM_NUMBER_IN_RANGE(10000000000, 99999999999);
-                V_R_NUMBER_SHOP := RANDOM_NUMBER_IN_RANGE(1, 1);
-                INSERT INTO THEATHERS (NAME, SHOP, PHONENUMBER, LOCATION_ID)
-                VALUES ('Theather' || i, V_R_NUMBER_SHOP,
-                        '+' || CAST(V_R_NUMBER_PHONE AS VARCHAR2(12)),
-                        V_R_LOCATION_ID);
-                commit;
+                t_theather_bulk(i).NAME := 'Theather' || i;
+                t_theather_bulk(i).SHOP := RANDOM_NUMBER_IN_RANGE(1, 1);
+                t_theather_bulk(i).PHONENUMBER := CAST(RANDOM_NUMBER_IN_RANGE(10000000000, 99999999999)AS VARCHAR2(12));
+                t_theather_bulk(i).LOCATION_ID := t_locationid(RANDOM_NUMBER_IN_RANGE(1, t_locationid.COUNT));
             END LOOP;
+        ADD_THEATHERS_BULK(t_theather_bulk);
     END GENERATE_THEATHERS_BULK;
     PROCEDURE
         GENERATE_HALLS_BULK(P_AMOUNT IN NUMBER)
@@ -545,10 +498,7 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
         TYPE type_theathers IS TABLE OF THEATHERS.THEATHER_ID%TYPE
             INDEX BY PLS_INTEGER;
         t_theatherid    type_theathers;
-        V_R_SEAT_AMOUNT NUMBER ;
-        V_R_FLOOR       NUMBER ;
-        V_R_HALLNUMBER  NUMBER ;
-        V_R_SCREENTYPE  VARCHAR2(10) ;
+        t_halls_bulk  type_halls_bulk;
     BEGIN
         SELECT THEATHER_ID BULK COLLECT
         INTO t_theatherid
@@ -557,17 +507,14 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
             LOOP
                 FOR i IN 1..P_AMOUNT
                     LOOP
-                        V_R_SEAT_AMOUNT := RANDOM_NUMBER_IN_RANGE(1, 100);
-                        /* V_R_FLOOR := RANDOM_NUMBER_IN_RANGE(1, 4);
-                        V_R_HALLNUMBER := RANDOM_NUMBER_IN_RANGE(0, 50);*/
-                        V_R_SCREENTYPE := RANDOM_SCREENTYPE;
-                        INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, HALLNUMBER, SCREENTYPE, THEATHER_ID)
-                        VALUES (V_R_SEAT_AMOUNT, j,
-                                i,
-                                V_R_SCREENTYPE, t_theatherid(j));
-                        commit;
+                        t_halls_bulk(i).SEAT_AMOUNT := RANDOM_NUMBER_IN_RANGE(1, 100);
+                        t_halls_bulk(i).FLOOR := j;
+                        t_halls_bulk(i).HALLNUMBER := i;
+                        t_halls_bulk(i).SCREENTYPE := RANDOM_SCREENTYPE;
+                        t_halls_bulk(i).THEATHER_ID := t_theatherid(j);
                     END LOOP;
             END LOOP;
+        ADD_HALLS_BULK(t_halls_bulk);
     END GENERATE_HALLS_BULK;
     PROCEDURE GENERATE_PERFORMANCES_BULK(P_AMOUNT IN NUMBER)
         IS
@@ -577,9 +524,7 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
         TYPE type_halls IS TABLE OF HALLS.HALL_ID%TYPE
             INDEX BY PLS_INTEGER;
         t_hallid      type_halls;
-        V_R_MOVIEID   NUMBER ;
-        V_R_STARTTIME DATE ;
-        V_R_ENDTIME   DATE ;
+        t_performances_bulk  type_performances_bulk;
     BEGIN
         SELECT MOVIE_ID BULK COLLECT
         INTO t_movieid
@@ -591,94 +536,48 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
             LOOP
                 FOR i IN 1..P_AMOUNT
                     LOOP
-                        V_R_MOVIEID := t_movieid(RANDOM_NUMBER_IN_RANGE(1, t_movieid.COUNT));
-                        V_R_STARTTIME := RANDOM_DATE_IN_RANGE(TO_DATE('01-01-1900 00:00', 'DD-MM-YYYY HH24:MI'),
-                                                              TO_DATE('01-01-2022 23:59', 'DD-MM-YYYY HH24:MI'));
-                        V_R_ENDTIME := V_R_STARTTIME + RANDOM_NUMBER_IN_RANGE(0, 200);
-                        INSERT INTO PERFORMANCES (MOVIE_ID, HALL_ID, STARTTIME, ENDTIME)
-                        VALUES (V_R_MOVIEID,
-                                t_hallid(j),
-                                V_R_STARTTIME,
-                                V_R_ENDTIME);
-                        commit;
+                        t_performances_bulk(i).STARTTIME := RANDOM_DATE_IN_RANGE(TO_DATE('01-01-1900 00:00', 'DD-MM-YYYY HH24:MI'),
+                                                                                 TO_DATE('01-01-2022 23:59', 'DD-MM-YYYY HH24:MI'));
+                        t_performances_bulk(i).HALL_ID := t_hallid(j);
+                        t_performances_bulk(i).MOVIE_ID := t_movieid(RANDOM_NUMBER_IN_RANGE(1, t_movieid.COUNT));
+                        t_performances_bulk(i).ENDTIME := t_performances_bulk(i).STARTTIME + RANDOM_NUMBER_IN_RANGE(0, 200);
                     END LOOP;
             END LOOP;
+        ADD_PERFORMANCES_BULK(t_performances_bulk);
     END GENERATE_PERFORMANCES_BULK;
-    PROCEDURE
-        GENERATE_TICKETS_BULK(P_AMOUNT IN NUMBER)
+    PROCEDURE ADD_THEATHERS_BULK(p_theathers_bulk IN type_theather_bulk)
         IS
-        TYPE type_viewers IS TABLE OF VIEWERS.VIEWER_ID%TYPE
-            INDEX BY PLS_INTEGER;
-        t_viewerid        type_viewers;
-        TYPE type_performances IS TABLE OF PERFORMANCES.PERFORMANCE_ID%TYPE
-            INDEX BY PLS_INTEGER;
-        t_performanceid   type_performances;
-        V_R_VIEWERID      NUMBER ;
-        V_R_PERFORMANCEID NUMBER ;
-        V_R_SEATNUMBER    NUMBER ;
-        V_R_PRICE         NUMBER ;
     BEGIN
-        SELECT VIEWER_ID BULK COLLECT
-        INTO t_viewerid
-        FROM VIEWERS;
-        SELECT PERFORMANCE_ID BULK COLLECT
-        INTO t_performanceid
-        FROM PERFORMANCES;
-        for j in 1..t_performanceid.COUNT
-            LOOP
-                FOR i IN 1..P_AMOUNT
-                    LOOP
-                        V_R_VIEWERID := t_viewerid(RANDOM_NUMBER_IN_RANGE(1, t_viewerid.COUNT));
-                        V_R_PERFORMANCEID := j;
-                        V_R_SEATNUMBER := i;
-                        V_R_PRICE := ROUND(RANDOM_NUMBER_IN_RANGE(0, 25), 2);
-                        INSERT INTO TICKETS
-                        VALUES (V_R_VIEWERID, V_R_PERFORMANCEID,
-                                V_R_SEATNUMBER, V_R_PRICE);
-                        commit;
-                    END LOOP;
-            END LOOP;
-    END GENERATE_TICKETS_BULK;
+        FORALL i in indices of p_theathers_bulk
+            INSERT INTO THEATHERS (NAME, SHOP, PHONENUMBER, LOCATION_ID)
+            values (p_theathers_bulk(i).NAME, p_theathers_bulk(i).SHOP, p_theathers_bulk(i).PHONENUMBER, p_theathers_bulk(i).LOCATION_ID);
+        commit;
+    END ADD_THEATHERS_BULK;
+    PROCEDURE
+        ADD_HALLS_BULK(p_halls_bulk IN type_halls_bulk)
+        IS
+    BEGIN
+        FORALL i in indices of p_halls_bulk
+            INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, HALLNUMBER, SCREENTYPE, THEATHER_ID)
+            values (p_halls_bulk(i).SEAT_AMOUNT, p_halls_bulk(i).FLOOR, p_halls_bulk(i).HALLNUMBER, p_halls_bulk(i).SCREENTYPE, p_halls_bulk(i).THEATHER_ID);
+        commit;
+    END ADD_HALLS_BULK;
+    PROCEDURE ADD_PERFORMANCES_BULK(p_performances_bulk IN type_performances_bulk)
+        IS
+    BEGIN
+        FORALL i in indices of p_performances_bulk
+            INSERT INTO PERFORMANCES (MOVIE_ID, HALL_ID, STARTTIME, ENDTIME)
+            values (p_performances_bulk(i).MOVIE_ID, p_performances_bulk(i).HALL_ID, p_performances_bulk(i).STARTTIME, p_performances_bulk(i).ENDTIME);
+        commit;
+    END ADD_PERFORMANCES_BULK;
     PROCEDURE GENERATE_2_LEVELS_BULK(P_AMOUNT_HALLS IN NUMBER, P_AMOUNT_THEATHERS IN NUMBER, P_AMOUNT_PERFORMANCES IN NUMBER)
         IS
     BEGIN
-        GENERATE_THEATHERS(P_AMOUNT_THEATHERS);
-        GENERATE_HALLS(P_AMOUNT_HALLS);
-        GENERATE_PERFORMANCES(P_AMOUNT_PERFORMANCES);
+        GENERATE_THEATHERS_BULK(P_AMOUNT_THEATHERS);
+        GENERATE_HALLS_BULK(P_AMOUNT_HALLS);
+        GENERATE_PERFORMANCES_BULK(P_AMOUNT_PERFORMANCES);
 
     END GENERATE_2_LEVELS_BULK;
-    PROCEDURE GENERATE_MANY_TO_MANY_BULK(P_AMOUNT_MOVIE IN NUMBER, P_AMOUNT_VIEWERS IN NUMBER, P_AMOUNT_TICKETS IN NUMBER,
-                                    P_AMOUNT_PERFORMANCES IN NUMBER, P_AMOUNT_HALLS IN NUMBER,
-                                    P_AMOUNT_THEATHERS IN NUMBER)
-        IS
-        start_time_many        pls_integer;
-        start_time_2levels     pls_integer;
-        end_time_2levels       pls_integer;
-        performances_generated pls_integer;
-        halls_generated        pls_integer;
-    BEGIN
-        DBMS_OUTPUT.PUT_LINE('4.1 - Generate_movies(20)');
-        GENERATE_MOVIES(P_AMOUNT_MOVIE);
-        DBMS_OUTPUT.PUT_LINE('4.2 - Generate_viewers(20)');
-        DBMS_OUTPUT.PUT_LINE('4.3 - Generate_viewers(20)');
-        DBMS_OUTPUT.PUT_LINE('4.4 - Generate_tickets(50)');
-        DBMS_OUTPUT.PUT_LINE('Start generating 2 Levels (generate_2_levels(40,50)');
-        start_time_2levels := dbms_utility.get_time;
-        GENERATE_2_LEVELS(P_AMOUNT_HALLS, P_AMOUNT_THEATHERS, P_AMOUNT_PERFORMANCES);
-        end_time_2levels := dbms_utility.get_time;
-        start_time_many := dbms_utility.get_time;
-        GENERATE_VIEWERS(P_AMOUNT_VIEWERS);
-        GENERATE_TICKETS(P_AMOUNT_TICKETS);
-        SELECT COUNT(*) INTO performances_generated FROM PERFORMANCES;
-        SELECT COUNT(*) INTO halls_generated FROM HALLS;
-        DBMS_OUTPUT.PUT_LINE('Halls generated: ' || halls_generated);
-        DBMS_OUTPUT.PUT_LINE('Performances generated: ' || performances_generated);
-        DBMS_OUTPUT.PUT_LINE('4.5 - Generate_viewers(20)');
-        DBMS_OUTPUT.PUT_LINE('The Duration of the many to many generation is: ' ||
-                             (dbms_utility.get_time - start_time_many) / 100 || ' seconds');
-        DBMS_OUTPUT.PUT_LINE('The Duration of the 2 levels generation is: ' ||
-                             (end_time_2levels - start_time_2levels) / 100 || ' seconds');
-    END GENERATE_MANY_TO_MANY_BULK;
 
     -------------------------
     -- PUBLIC FUNCTIONS
@@ -948,18 +847,18 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
             dbms_output.put_line('Deze exception wordt niet herkent.');*/
     END PRINTREPORT_2_LEVELS_M6;
     -- M7
-    PROCEDURE COMPARISON_SINGLE_BULK_M7(p_x IN NUMBER, p_y IN NUMBER, p_z IN NUMBER) IS
+    PROCEDURE COMPARISON_SINGLE_BULK_M7(P_THEATHERS_AMOUNT IN NUMBER, P_HALLS_AMOUNT IN NUMBER, P_PERFORMANCES_AMOUNT IN NUMBER) IS
         v_date_start timestamp;
     BEGIN
         DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
-                             'COMPARISON SINGLE BULK - COMPARISON_SINGLE_BULK_M7(' || p_x || ', ' || p_y || ', ' ||
-                             p_z || ')');
+                             'COMPARISON SINGLE BULK - COMPARISON_SINGLE_BULK_M7(' || P_THEATHERS_AMOUNT || ', ' || P_HALLS_AMOUNT || ', ' ||
+                             P_PERFORMANCES_AMOUNT || ')');
         empty_tables();
         manual_input_m4();
         DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
-                             'generate_2_level(' || p_x || ', ' || p_y || ', ' || p_z || ');');
+                             'generate_2_level(' || P_THEATHERS_AMOUNT || ', ' || P_HALLS_AMOUNT || ', ' || P_PERFORMANCES_AMOUNT || ');');
         v_date_start := systimestamp;
-        generate_2_levels(p_x, p_y, p_z);
+        generate_2_levels(P_THEATHERS_AMOUNT, P_HALLS_AMOUNT, P_PERFORMANCES_AMOUNT);
         DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
                              '     The duration of generate_2_levels was: ' ||
                              (extract(minute from systimestamp - v_date_start)) || ':' ||
@@ -968,9 +867,9 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
         empty_tables();
         manual_input_m4();
         DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
-                             'generate_2_level_bulk(' || p_x || ', ' || p_y || ', ' || p_z || ');');
+                             'generate_2_level_bulk(' || P_THEATHERS_AMOUNT || ', ' || P_HALLS_AMOUNT || ', ' || P_PERFORMANCES_AMOUNT || ');');
         v_date_start := systimestamp;
-        generate_2_levels_bulk(p_x, p_y, p_z);
+        generate_2_levels_bulk(P_THEATHERS_AMOUNT, P_HALLS_AMOUNT, P_PERFORMANCES_AMOUNT);
         DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
                              '     The duration of generate_2_levels was: ' ||
                              (extract(minute from systimestamp - v_date_start)) || ':' ||
