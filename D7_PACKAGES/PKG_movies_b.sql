@@ -220,6 +220,9 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
                         V_R_LOCATION_ID);
                 commit;
             END LOOP;
+        DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
+                             'GENERATE_THEATHERS(' || P_AMOUNT || ') generated ' || P_AMOUNT ||
+                             ' rows');
     END GENERATE_THEATHERS;
     PROCEDURE
         GENERATE_HALLS(P_AMOUNT IN NUMBER)
@@ -244,12 +247,15 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
                         V_R_HALLNUMBER := RANDOM_NUMBER_IN_RANGE(0, 50);*/
                         V_R_SCREENTYPE := RANDOM_SCREENTYPE;
                         INSERT INTO HALLS (SEAT_AMOUNT, FLOOR, HALLNUMBER, SCREENTYPE, THEATHER_ID)
-                        VALUES (V_R_SEAT_AMOUNT, j,
-                                i,
+                        VALUES (V_R_SEAT_AMOUNT, j + 200,
+                                i + 200,
                                 V_R_SCREENTYPE, t_theatherid(j));
                         commit;
                     END LOOP;
             END LOOP;
+        DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
+                             'GENERATE_HALLS(' || P_AMOUNT || ') generated ' || t_theatherid.COUNT * P_AMOUNT ||
+                             ' rows');
     END GENERATE_HALLS;
     PROCEDURE GENERATE_PERFORMANCES(P_AMOUNT IN NUMBER)
         IS
@@ -285,6 +291,9 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
                         commit;
                     END LOOP;
             END LOOP;
+        DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
+                             'GENERATE_PERFORMANCES(' || P_AMOUNT || ') generated ' || t_hallid.COUNT * P_AMOUNT ||
+                             ' rows');
     END GENERATE_PERFORMANCES;
     PROCEDURE
         GENERATE_TICKETS(P_AMOUNT IN NUMBER)
@@ -321,7 +330,7 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
                     END LOOP;
             END LOOP;
     END GENERATE_TICKETS;
-    PROCEDURE GENERATE_2_LEVELS(P_AMOUNT_HALLS IN NUMBER, P_AMOUNT_THEATHERS IN NUMBER, P_AMOUNT_PERFORMANCES IN NUMBER)
+    PROCEDURE GENERATE_2_LEVELS(P_AMOUNT_THEATHERS IN NUMBER, P_AMOUNT_HALLS IN NUMBER,  P_AMOUNT_PERFORMANCES IN NUMBER)
         IS
     BEGIN
         GENERATE_THEATHERS(P_AMOUNT_THEATHERS);
@@ -520,6 +529,9 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
                 t_theather_bulk(i).LOCATION_ID := t_locationid(RANDOM_NUMBER_IN_RANGE(1, t_locationid.COUNT));
             END LOOP;
         ADD_THEATHERS_BULK(t_theather_bulk);
+        DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
+                             'GENERATE_THEATHERS_BULK(' || P_AMOUNT || ') generated ' || P_AMOUNT ||
+                             ' rows');
     END GENERATE_THEATHERS_BULK;
     PROCEDURE
         GENERATE_HALLS_BULK(P_AMOUNT IN NUMBER)
@@ -528,6 +540,7 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
             INDEX BY PLS_INTEGER;
         t_theatherid type_theathers;
         t_halls_bulk type_halls_bulk;
+        v_count NUMBER:=0;
     BEGIN
         SELECT THEATHER_ID BULK COLLECT
         INTO t_theatherid
@@ -536,14 +549,19 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
             LOOP
                 FOR i IN 1..P_AMOUNT
                     LOOP
-                        t_halls_bulk(i).SEAT_AMOUNT := RANDOM_NUMBER_IN_RANGE(1, 100);
-                        t_halls_bulk(i).FLOOR := j;
-                        t_halls_bulk(i).HALLNUMBER := i;
-                        t_halls_bulk(i).SCREENTYPE := RANDOM_SCREENTYPE();
-                        t_halls_bulk(i).THEATHER_ID := t_theatherid(j);
+                        t_halls_bulk(v_count).SEAT_AMOUNT := RANDOM_NUMBER_IN_RANGE(1, 100);
+                        t_halls_bulk(v_count).FLOOR := j + 200;
+                        t_halls_bulk(v_count).HALLNUMBER := i + 200;
+                        t_halls_bulk(v_count).SCREENTYPE := RANDOM_SCREENTYPE();
+                        t_halls_bulk(v_count).THEATHER_ID := t_theatherid(j);
+                        v_count := v_count + 1;
                     END LOOP;
             END LOOP;
         ADD_HALLS_BULK(t_halls_bulk);
+        DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
+                             'GENERATE_HALLS_BULK(' || P_AMOUNT || ') generated ' || v_count ||
+                             ' rows');
+
     END GENERATE_HALLS_BULK;
     PROCEDURE GENERATE_PERFORMANCES_BULK(P_AMOUNT IN NUMBER)
         IS
@@ -554,6 +572,7 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
             INDEX BY PLS_INTEGER;
         t_hallid            type_halls;
         t_performances_bulk type_performances_bulk;
+        v_count NUMBER:=0;
     BEGIN
         SELECT MOVIE_ID BULK COLLECT
         INTO t_movieid
@@ -565,18 +584,22 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
             LOOP
                 FOR i IN 1..P_AMOUNT
                     LOOP
-                        t_performances_bulk(i).STARTTIME :=
+                        t_performances_bulk(v_count).STARTTIME :=
                                 RANDOM_DATE_IN_RANGE(TO_DATE('01-01-1900 00:00', 'DD-MM-YYYY HH24:MI'),
                                                      TO_DATE('01-01-2022 23:59', 'DD-MM-YYYY HH24:MI'));
-                        t_performances_bulk(i).HALL_ID := t_hallid(j);
-                        t_performances_bulk(i).MOVIE_ID := t_movieid(RANDOM_NUMBER_IN_RANGE(1, t_movieid.COUNT));
-                        t_performances_bulk(i).ENDTIME :=
-                                    t_performances_bulk(i).STARTTIME + RANDOM_NUMBER_IN_RANGE(0, 200);
+                        t_performances_bulk(v_count).HALL_ID := t_hallid(j);
+                        t_performances_bulk(v_count).MOVIE_ID := t_movieid(RANDOM_NUMBER_IN_RANGE(1, t_movieid.COUNT));
+                        t_performances_bulk(v_count).ENDTIME :=
+                                    t_performances_bulk(v_count).STARTTIME + RANDOM_NUMBER_IN_RANGE(0, 200);
+                        v_count := v_count + 1;
                     END LOOP;
             END LOOP;
         ADD_PERFORMANCES_BULK(t_performances_bulk);
+        DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
+                             'GENERATE_PERFORMANCES_BULK(' || P_AMOUNT || ') generated ' || v_count ||
+                             ' rows');
     END GENERATE_PERFORMANCES_BULK;
-    PROCEDURE GENERATE_2_LEVELS_BULK(P_AMOUNT_HALLS IN NUMBER, P_AMOUNT_THEATHERS IN NUMBER,
+    PROCEDURE GENERATE_2_LEVELS_BULK(P_AMOUNT_THEATHERS IN NUMBER,P_AMOUNT_HALLS IN NUMBER,
                                      P_AMOUNT_PERFORMANCES IN NUMBER)
         IS
     BEGIN
@@ -640,7 +663,7 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
         PKG_MOVIES.ADD_LOCATION('Oost St', 1155, '6665', 'ZA');
 
 -- Viewers
-        /* PKG_MOVIES.ADD_VIEWER('Diego', 'Luiken', TO_DATE('1962-05-22', 'yyyy-mm-dd'), 'M', 'diegoluiken@gmail.com',
+        PKG_MOVIES.ADD_VIEWER('Diego', 'Luiken', TO_DATE('1962-05-22', 'yyyy-mm-dd'), 'M', 'diegoluiken@gmail.com',
                               'Brixtonlaan', 176, '1000', 'BE');
         PKG_MOVIES.ADD_VIEWER('Agnes', 'R. Sutton', TO_DATE('1945-06-20', 'yyyy-mm-dd'), 'X', 'agnessutton@gmail.com',
                               'Aven Ackers', 227, '10002', 'US');
@@ -707,7 +730,7 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
         PKG_MOVIES.ADD_TICKET('shaniquabraams@gmail.com', 'Breaking Bad', 'Artscape Theatre Centre', 'D.F. Malan St',
                               25,
                               '6665', 'ZA', 2, 2, TO_DATE('2015-02-18 19:45', 'yyyy-mm-dd hh24:mi'),
-                              15, 10.50);*/
+                              15, 10.50);
 
     end MANUAL_INPUT_M4;
     PROCEDURE
@@ -857,10 +880,10 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
     -- M7
     PROCEDURE COMPARISON_SINGLE_BULK_M7(P_THEATHERS_AMOUNT IN NUMBER, P_HALLS_AMOUNT IN NUMBER,
                                         P_PERFORMANCES_AMOUNT IN NUMBER) IS
-        v_date_start timestamp;
+        V_START_TIME timestamp;
     BEGIN
         DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
-                             'COMPARISON SINGLE BULK - COMPARISON_SINGLE_BULK_M7(' || P_THEATHERS_AMOUNT || ', ' ||
+                             'COMPARISON_SINGLE_BULK_M7(' || P_THEATHERS_AMOUNT || ', ' ||
                              P_HALLS_AMOUNT || ', ' ||
                              P_PERFORMANCES_AMOUNT || ')');
         EMPTY_TABLES();
@@ -868,24 +891,22 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
         DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
                              'generate_2_level(' || P_THEATHERS_AMOUNT || ', ' || P_HALLS_AMOUNT || ', ' ||
                              P_PERFORMANCES_AMOUNT || ');');
-        v_date_start := systimestamp;
+        V_START_TIME := systimestamp;
         generate_2_levels(P_THEATHERS_AMOUNT, P_HALLS_AMOUNT, P_PERFORMANCES_AMOUNT);
         DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
                              '     The duration of generate_2_levels was: ' ||
-                             (extract(minute from systimestamp - v_date_start)) || ':' ||
-                             (extract(second from systimestamp - v_date_start)));
+                             TIMESTAMP_DIFF(systimestamp, V_START_TIME));
 
         EMPTY_TABLES();
         MANUAL_INPUT_M4();
         DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
                              'generate_2_level_bulk(' || P_THEATHERS_AMOUNT || ', ' || P_HALLS_AMOUNT || ', ' ||
                              P_PERFORMANCES_AMOUNT || ');');
-        v_date_start := systimestamp;
+        V_START_TIME := systimestamp;
         generate_2_levels_bulk(P_THEATHERS_AMOUNT, P_HALLS_AMOUNT, P_PERFORMANCES_AMOUNT);
         DBMS_OUTPUT.PUT_LINE(to_char(systimestamp, '[YYYY-MM-DD HH24:MM:SS] ') ||
                              '     The duration of generate_2_levels was: ' ||
-                             (extract(minute from systimestamp - v_date_start)) || ':' ||
-                             (extract(second from systimestamp - v_date_start)));
+                             TIMESTAMP_DIFF(systimestamp, V_START_TIME));
         DBMS_OUTPUT.PUT_LINE('-------------------------------------------------------');
     END COMPARISON_SINGLE_BULK_M7;
 END PKG_movies;
