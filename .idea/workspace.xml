@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2e34a21-2380-4b60-98d6-05b86e5f11a0" name="Changes" comment="Added M7">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_src_/schema/PROJECT.-dZbGA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_src_/schema/PROJECT.-dZbGA.zip" afterDir="false" />
+    <list default="true" id="c2e34a21-2380-4b60-98d6-05b86e5f11a0" name="Changes" comment="Added fix for rows">
+      <change afterPath="$PROJECT_DIR$/D7_PACKAGES/Maxim Derboven PDF M7.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/D7_PACKAGES/execute_package_code.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D7_PACKAGES/execute_package_code.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +115,8 @@
       <workItem from="1652180127543" duration="115000" />
       <workItem from="1652253157108" duration="1560000" />
       <workItem from="1652363610705" duration="2208000" />
-      <workItem from="1652814619533" duration="5196000" />
+      <workItem from="1652814619533" duration="5235000" />
+      <workItem from="1652820129375" duration="331000" />
     </task>
     <task id="LOCAL-00001" summary="M1: reflectie.md ingevuld (relaties &amp; velden)">
       <created>1644399934274</created>
@@ -167,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652814709543</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added fix for rows">
+      <created>1652819891268</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652819891268</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +199,7 @@
     <MESSAGE value="M6 fixed error" />
     <MESSAGE value="Added M6" />
     <MESSAGE value="Added M7" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added M7" />
+    <MESSAGE value="Added fix for rows" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added fix for rows" />
   </component>
 </project>
