@@ -320,8 +320,8 @@ CREATE OR REPLACE PACKAGE BODY PKG_movies IS
                 FOR i IN 1..P_AMOUNT
                     LOOP
                         V_R_VIEWERID := t_viewerid(RANDOM_NUMBER_IN_RANGE(1, t_viewerid.COUNT));
-                        V_R_PERFORMANCEID := j;
-                        V_R_SEATNUMBER := i;
+                        V_R_PERFORMANCEID := j+200;
+                        V_R_SEATNUMBER := i+200;
                         V_R_PRICE := ROUND(RANDOM_NUMBER_IN_RANGE(0, 25), 2);
                         INSERT INTO TICKETS
                         VALUES (V_R_VIEWERID, V_R_PERFORMANCEID,
