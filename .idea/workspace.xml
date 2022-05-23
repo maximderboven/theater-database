@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2e34a21-2380-4b60-98d6-05b86e5f11a0" name="Changes" comment="Added M7 final">
-      <change afterPath="$PROJECT_DIR$/D8_OPTIMALISATION/Maxim Derboven PDF M8.docx" afterDir="false" />
+    <list default="true" id="c2e34a21-2380-4b60-98d6-05b86e5f11a0" name="Changes" comment="Added M8">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_src_/schema/PROJECT.-dZbGA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/463326a7-06c1-4f1c-82e0-2c0bdf611187/storage_v2/_src_/schema/PROJECT.-dZbGA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D7_PACKAGES/PKG_movies_b.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/D8_OPTIMALISATION/ignore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/D8_OPTIMALISATION/optimalisatie.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/D8_OPTIMALISATION/Maxim Derboven PDF M8.docx" beforeDir="false" afterPath="$PROJECT_DIR$/D8_OPTIMALISATION/Maxim Derboven PDF M8.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/D8_OPTIMALISATION/Maxim Derboven PDF M8.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/D8_OPTIMALISATION/optimalisatie.sql" beforeDir="false" afterPath="$PROJECT_DIR$/D8_OPTIMALISATION/optimalisatie.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +122,8 @@
       <workItem from="1652859714913" duration="2894000" />
       <workItem from="1653036709049" duration="8617000" />
       <workItem from="1653056113226" duration="18000" />
-      <workItem from="1653154643000" duration="3340000" />
+      <workItem from="1653154643000" duration="3467000" />
+      <workItem from="1653287541196" duration="2598000" />
     </task>
     <task id="LOCAL-00001" summary="M1: reflectie.md ingevuld (relaties &amp; velden)">
       <created>1644399934274</created>
@@ -188,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652820480380</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added M8">
+      <created>1653158131690</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1653158131690</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +222,7 @@
     <MESSAGE value="Added M7" />
     <MESSAGE value="Added fix for rows" />
     <MESSAGE value="Added M7 final" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added M7 final" />
+    <MESSAGE value="Added M8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added M8" />
   </component>
 </project>
